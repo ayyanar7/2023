@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/item_one"
+        android:checked="true"
+        android:icon="@drawable/bottombar_item_one"
+        android:title="@string/bottombar_item_left" />
+
+    <item
+        android:id="@+id/item_two"
+        android:icon="@drawable/bottombar_item_two"
+        android:title="@string/bottombar_item_leftbutone" />
+    <!--must set the item title to empty-->
+    <item
+        android:id="@+id/item_three"
+        android:title="DashBoard" />
+    <item
+        android:id="@+id/item_four"
+        android:icon="@drawable/bottombar_item_four"
+        android:title="@string/bottombar_item_rightb4one" />
+    <item
+        android:id="@+id/item_five"
+        android:icon="@drawable/bottombar_item_five"
+        android:title="@string/bottombar_item_right" />
+</menu>

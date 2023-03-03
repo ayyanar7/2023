@@ -1,0 +1,33 @@
+<resources>
+
+    <declare-styleable name="WaveLayout">
+        <attr name="wave_color" format="color|reference"/>
+        <attr name="animation_duration" format="integer|reference"/>
+        <attr name="auto_start" format="boolean|reference"/>
+        <attr name="wave_angle" format="integer|reference"/>
+        <attr name="mask_width" format="float|reference"/>
+        <attr name="gradient_center_width" format="float|reference"/>
+        <attr name="reverse_animation" format="boolean|reference"/>
+    </declare-styleable>
+
+
+     <declare-styleable name="WaveLayoutRecyclerView">
+        <attr name="rv_demolayout" format="reference" />
+        <attr name="rv_child_count" format="integer|reference" />
+        <attr name="rv_layoutmanager_type" format="enum">
+            <enum name="linear_vertical" value="0" />
+            <enum name="linear_horizontal" value="1" />
+            <enum name="grid" value="2" />
+        </attr>
+        <attr name="rv_grid_childcount" format="integer|reference" />
+        <attr name="rv_wave_color" format="color|reference" />
+        <attr name="rv_wave_angle" format="integer|reference" />
+        <attr name="rv_wave_item_background" format="color|reference" />
+        <attr name="rv_wave_duration" format="integer|reference" />
+        <attr name="rv_mask_width" format="float|reference" />
+        <attr name="rv_reverse_animation" format="boolean|reference" />
+    </declare-styleable>
+    
+
+    
+</resources>

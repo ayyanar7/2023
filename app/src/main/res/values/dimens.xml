@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+
+        <!-- Default screen margins, per the Android Design guidelines. -->
+        <!--    text size-->
+        <dimen name="tab_head_label">12sp</dimen>
+        <dimen name="section_head_size">12sp</dimen>
+        <dimen name="tab_label">12sp</dimen>lab
+        <dimen name="sub_tab_label">10sp</dimen>
+        <dimen name="search_text">10sp</dimen>
+        <dimen name="activity_horizontal_margin">12dp</dimen>
+        <dimen name="activity_vertical_margin">12dp</dimen>
+        <dimen name="tab_max_width">264dp</dimen>
+        <dimen name="tab_padding_bottom">12dp</dimen>
+
+        <dimen name="custom_tab_layout_height">45dp</dimen>
+        <dimen name="custom_sub_tab_layout_height">43dp</dimen>
+        <dimen name="custom_sub_tab_layout_height2">35dp</dimen>
+
+        <dimen name="nav_header_vertical_spacing">8dp</dimen>
+        <dimen name="nav_layout_width">250dp</dimen>
+        <dimen name="nav_header_height">180dp</dimen>
+        <dimen name="fab_margin">16dp</dimen>
+
+        <dimen name="spacing_small">3dp</dimen>
+        <dimen name="spacing_medium">6dp</dimen>
+        <dimen name="spacing_large">12dp</dimen>
+        <!--    About-->
+        <dimen name="icon_size">25dp</dimen>
+        <dimen name="card_bottom_info_height">150dp</dimen>
+        <dimen name="card_extra_height">20dp</dimen>
+        <dimen name="app_icon_size">90dp</dimen>
+        <dimen name="profile_picture_size">100dp</dimen>
+        <dimen name="profile_picture_border">3dp</dimen>
+        <dimen name="card_radius">3dp</dimen>
+        <dimen name="card_elevation">3dp</dimen>
+        <dimen name="social_media_vertical_padding">10dp</dimen>
+        <dimen name="cardview_compat_inset_shadow">1dp</dimen>
+        <dimen name="cardview_default_elevation">2dp</dimen>
+        <dimen name="cardview_default_radius">2dp</dimen>
+</resources>

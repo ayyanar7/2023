@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.ag.bta.main">
+
+    <application
+        android:allowBackup="true"
+        android:name="com.ag.bta.main.application.BusinessAgentApplication"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/MyMaterialTheme"
+        tools:ignore="GoogleAppIndexingWarning"
+        tools:targetApi="29" >
+
+        <!--    <activity android:name="com.ag.bta.views.wavelayout.sample.MainActivity"-->
+<!--            <activity android:name="com.ag.bta.main.activities.HomeActivity"-->
+
+<!--        android:exported="true"-->
+<!--        android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize"-->
+<!--        tools:node="merge">-->
+<!--        <intent-filter>-->
+<!--            <action android:name="android.intent.action.MAIN" />-->
+
+<!--            <category android:name="android.intent.category.LAUNCHER" />-->
+<!--        </intent-filter>-->
+<!--    </activity>-->
+        <!--            android:name="com.ag.bta.login.SplashsActivity"-->
+         <activity
+             android:name="com.ag.bta.ui.treeview.MainActivity"
+
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name="com.ag.bta.ui.custombottombar.bottomnavigationview.CenterFabActivity" />
+
+
+        <activity android:name="com.ag.bta.main.activities.SearchActivity" />
+        <activity android:name="com.ag.bta.main.activities.HomeActivity"/>
+
+        <!--        <activity android:name="com.ag.bta.ui.main.activities.MainActivity">-->
+        <!--            <intent-filter>-->
+        <!--                <action android:name="android.intent.action.MAIN" />-->
+        <!--                <category android:name="android.intent.category.LAUNCHER" />-->
+        <!--            </intent-filter>-->
+        <!--        </activity>-->
+
+
+        <!--        <activity android:name="com.ag.bta.utils.imageutils.imagepicker.ImagePickerActivity">-->
+        <!--            <intent-filter>-->
+        <!--                <action android:name="android.intent.action.MAIN" />-->
+
+        <!--                <category android:name="android.intent.category.LAUNCHER" />-->
+        <!--            </intent-filter>-->
+        <!--        </activity>-->
+
+        <activity android:name="com.ag.bta.ui.inventories.ScanCodeActivitysearch"></activity>
+        <activity android:name="com.ag.bta.ui.inventories.ScanCodeActivity" />
+        <activity android:name="com.ag.bta.ui.inventories.ScanCodeActivitydel" />
+        <activity android:name="com.ag.bta.ui.inventories.viewInventoryActivity" />
+        <activity android:name="com.ag.bta.ui.inventories.scanItemsActivity" />
+        <activity android:name="com.ag.bta.ui.inventories.dashboardActivity" />
+        <activity android:name="com.ag.bta.login.RegisterActivity" />
+        <activity android:name="com.ag.bta.login.LoginActivity" />
+        <activity android:name="com.ag.bta.login.PreLoginActivity" />
+<!--        <activity android:name="com.ag.bta.main.fragments.AdminAboutFragment"-->
+<!--            android:configChanges="keyboard|orientation|locale|fontScale|screenLayout|screenSize|uiMode|navigation|touchscreen|keyboardHidden|layoutDirection|smallestScreenSize"/>-->
+
+        <activity
+            android:name="com.ag.bta.utils.imageutils.imagepicker.wxdemo.OpenGalleryActivity"
+            android:parentActivityName="com.ag.bta.utils.imageutils.imagepicker.ImagePickerActivity"/>
+
+        <activity
+            android:name="com.lzy.imagepicker.ui.ImagePreviewDelActivity"
+            android:theme="@style/ImagePickerThemeFullScreen"/>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.ag.bta.ui.main.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths_public" />
+        </provider>
+    </application>
+</manifest>

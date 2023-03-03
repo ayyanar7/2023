@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/backup software/Android/Workspace 2023/WaveLayout/app/src/main/res/layout/home_activity_main.xml" value="0.22" />
+        <entry key="..\:/backup software/Android/Workspace 2023/WaveLayout/app/src/main/res/layout/home_app_bar_main.xml" value="0.2" />
+        <entry key="..\:/backup software/Android/Workspace 2023/WaveLayout/app/src/main/res/layout/nav_drawer_layout.xml" value="0.17083333333333334" />
+        <entry key="..\:/backup software/Android/Workspace 2023/WaveLayout/app/src/main/res/layout/nav_drawer_recycler.xml" value="0.17083333333333334" />
+        <entry key="..\:/backup software/Android/Workspace 2023/WaveLayout/app/src/main/res/layout/navdrawer_recyclerview.xml" value="0.17083333333333334" />
+        <entry key="..\:/backup software/Android/Workspace 2023/WaveLayout/app/src/main/res/layout/wavelayout_item_listtype_4.xml" value="0.5" />
+        <entry key="..\:/backup software/Android/Workspace 2023/WaveLayout/app/src/main/res/layout/wavelayout_navdrawer_recyclerview.xml" value="0.20104166666666667" />
+        <entry key="app/src/main/res/drawable-v24/backgroundgradient.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable-v24/login_ic_forum_black_24dp.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/bg_card.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/bottombar_item_center.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_launcher.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_nav_account.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_nav_home.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/inventories_circlebackgroundpurple.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/line_divider.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/about_homepage_xab_layout_card.xml" value="0.10677083333333333" />
+        <entry key="app/src/main/res/layout/about_sample_view.xml" value="0.10677083333333333" />
+        <entry key="app/src/main/res/layout/about_xab_about_layout_card.xml" value="0.10677083333333333" />
+        <entry key="app/src/main/res/layout/about_xab_each_action.xml" value="0.10677083333333333" />
+        <entry key="app/src/main/res/layout/about_xab_each_link.xml" value="0.10677083333333333" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.15833333333333333" />
+        <entry key="app/src/main/res/layout/activity_second_grid.xml" value="0.15833333333333333" />
+        <entry key="app/src/main/res/layout/activity_second_list.xml" value="0.15833333333333333" />
+        <entry key="app/src/main/res/layout/bottombarview_base_fragment.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/custom_sub_tab.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/dashboard.xml" value="0.16" />
+        <entry key="app/src/main/res/layout/fragment_fixtures.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_maintab_home.xml" value="0.1125" />
+        <entry key="app/src/main/res/layout/fragment_subtab_0.xml" value="0.1078125" />
+        <entry key="app/src/main/res/layout/fragment_subtab_1.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_subtab_2.xml" value="0.1078125" />
+        <entry key="app/src/main/res/layout/fragment_type3_apps.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/home_activity_main.xml" value="0.10052083333333334" />
+        <entry key="app/src/main/res/layout/home_activity_main_backup.xml" value="0.15833333333333333" />
+        <entry key="app/src/main/res/layout/home_app_bar_main.xml" value="0.1125" />
+        <entry key="app/src/main/res/layout/home_app_bar_main_backup.xml" value="0.15833333333333333" />
+        <entry key="app/src/main/res/layout/home_nav_header_main.xml" value="0.10052083333333334" />
+        <entry key="app/src/main/res/layout/imagepicker_activity_image_picker.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/imagepicker_dialog_item_bg_only.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/item_main_app.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/item_popular_app.xml" value="0.12552083333333333" />
+        <entry key="app/src/main/res/layout/item_scroll_horizontal.xml" value="0.13802083333333334" />
+        <entry key="app/src/main/res/layout/item_scroll_vertical.xml" value="0.13802083333333334" />
+        <entry key="app/src/main/res/layout/item_type1.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/item_type1_app.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/item_type2.xml" value="0.1078125" />
+        <entry key="app/src/main/res/layout/item_type2_app.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/item_type3_app.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/layout_demo.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/layout_demo_grid.xml" value="0.15833333333333333" />
+        <entry key="app/src/main/res/layout/layout_news_card.xml" value="0.1046875" />
+        <entry key="app/src/main/res/layout/login_activity_login_screen.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/login_activity_main.xml" value="0.13802083333333334" />
+        <entry key="app/src/main/res/layout/login_activity_splashs.xml" value="0.13802083333333334" />
+        <entry key="app/src/main/res/layout/nav_drawer_layout.xml" value="0.10729166666666666" />
+        <entry key="app/src/main/res/layout/nav_drawer_recycler.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/navigation_list_view_item_row.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/shimmer_activity_main.xml" value="0.15833333333333333" />
+        <entry key="app/src/main/res/layout/toolbar.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/wavelayout.xml" value="0.15833333333333333" />
+        <entry key="app/src/main/res/layout/wavelayout_activity_main.xml" value="0.11458333333333333" />
+        <entry key="app/src/main/res/layout/wavelayout_dummy_view.xml" value="0.13802083333333334" />
+        <entry key="app/src/main/res/layout/wavelayout_grid2_recyclerview.xml" value="0.15833333333333333" />
+        <entry key="app/src/main/res/layout/wavelayout_grid_recyclerview.xml" value="0.15833333333333333" />
+        <entry key="app/src/main/res/layout/wavelayout_griditem_1.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/wavelayout_item_gridtype_1.xml" value="0.13802083333333334" />
+        <entry key="app/src/main/res/layout/wavelayout_item_gridtype_2.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/wavelayout_item_listtype_1.xml" value="0.13802083333333334" />
+        <entry key="app/src/main/res/layout/wavelayout_item_listtype_2.xml" value="0.24736842105263157" />
+        <entry key="app/src/main/res/layout/wavelayout_item_listtype_3.xml" value="0.13802083333333334" />
+        <entry key="app/src/main/res/layout/wavelayout_item_listtype_nav.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/wavelayout_list2_recyclerview.xml" value="0.15833333333333333" />
+        <entry key="app/src/main/res/layout/wavelayout_list_recyclerview.xml" value="0.15833333333333333" />
+        <entry key="app/src/main/res/layout/wavelayout_listitem_1.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/wavelayout_listitem_2.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/wavelayout_navdrawer_recyclerview.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/wavelayout_preload_grid.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/wavelayout_preload_grid2.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/wavelayout_preload_list.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/wavelayout_preload_list2.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/wavelayoutrv_layout_sample_view.xml" value="0.15833333333333333" />
+        <entry key="app/src/main/res/layout/wavelayoutrv_viewholder.xml" value="0.15833333333333333" />
+        <entry key="app/src/main/res/menu/bottombarview_menu_bottom.xml" value="0.10677083333333333" />
+        <entry key="app/src/main/res/menu/main.xml" value="0.1" />
+        <entry key="app/src/main/res/menu/menu_nav_drawer.xml" value="0.11927083333333334" />
+      </map>
+    </option>
+  </component>
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

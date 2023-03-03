@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ag.bta.main.wavelayout.view.WaveLayoutRecyclerView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/wavelayout_recycler_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="10dp"
+    android:paddingTop="10dp"
+    app:rv_wave_angle="20"
+    app:rv_demolayout="@layout/wavelayout_preload_grid2"
+    app:rv_layoutmanager_type="grid"
+    app:rv_wave_color="@color/default_wavelayout_color"
+    app:rv_wave_item_background="@drawable/wavelayout_card_sharpbackground" />

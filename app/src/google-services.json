@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "144711481926",
+    "firebase_url": "https://bussinesstaxagent-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "bussinesstaxagent",
+    "storage_bucket": "bussinesstaxagent.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:144711481926:android:155ea80a071e33fdec6847",
+        "android_client_info": {
+          "package_name": "com.ag.bta.main"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "144711481926-7qdcnirane2kmkn4nd4g2rpn159skn0d.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ag.bta.main",
+            "certificate_hash": "6e1e5f3644c2ff1790e3bf5d9f1dd3fe06658e88"
+          }
+        },
+        {
+          "client_id": "144711481926-rvv62005rutd5adfhbbtim2sqi01kcpf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBCg9VYBQ9iku9JDv_BI6eA-ZE-3hMXZDQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "144711481926-rvv62005rutd5adfhbbtim2sqi01kcpf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

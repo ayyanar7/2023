@@ -1,0 +1,148 @@
+<resources>
+
+    <!-- Base application theme. -->
+<!--    <style name="AppTheme" parent="Theme.AppCompat.Light">-->
+<!--        &lt;!&ndash; Customize your theme here. &ndash;&gt;-->
+<!--        <item name="colorPrimary">@color/colorPrimary</item>-->
+<!--        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>-->
+<!--        <item name="colorAccent">@color/colorAccent</item>-->
+<!--    </style>-->
+    <style name="MyMaterialTheme" parent="MyMaterialTheme.Base">
+
+    </style>
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+<!--  Recycler..-->
+    <style name="ScrollbarRecycler" parent="android:Widget">
+<item name = "android:scrollbars">vertical</item>
+    </style>
+    <style name="MyMaterialTheme.Base" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+    <style name="MyMaterialTheme.CustomToolbar">
+        <item name="android:windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+
+        <item name="windowNoTitle">true</item>
+        <item name="colorPrimary">@android:color/holo_orange_dark</item>
+    </style>
+
+<!--    <style name="AppTheme.GreenButton" parent="Widget.AppCompat.Button.Colored">-->
+<!--        <item name="colorButtonNormal">@color/colorPrimary</item>-->
+<!--        <item name="android:textColor">@color/colorAccent</item>-->
+<!--    </style>-->
+
+<!--    <style name="AppTheme.UninstallButton" parent="Widget.AppCompat.Button">-->
+<!--        <item name="colorButtonNormal">@color/colorAccent</item>-->
+<!--        <item name="android:textColor">@color/colorPrimary</item>-->
+<!--    </style>-->
+    <!-- Application theme. -->
+    <style name="ListTheme" parent="MyMaterialTheme">
+ 
+            <item name="android:colorPrimary">@color/colorPrimary</item>
+        <item name="android:colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="android:colorAccent">@color/colorAccent</item>
+        <item name="android:label">@string/list_title</item>
+        
+    </style>
+
+        <style name="GridTheme" parent="android:Theme.Holo.Light.DarkActionBar">
+        <item name="android:colorPrimary">@color/colorPrimaryGrid</item>
+        <item name="android:colorPrimaryDark">@color/colorPrimaryDarkGrid</item>
+        <item name="android:colorAccent">@color/colorAccentGrid</item>
+        <item name="android:label">@string/grid_title</item>
+    </style>
+
+    <style name="TabLayoutStyle" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">@dimen/tab_head_label</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="SubTabLayoutStyle" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">@dimen/sub_tab_label</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <style name="SwitchCompatTheme">
+        <item name="colorControlActivated">@color/colorPrimary</item>
+    </style>
+    <style name="NavigationView">
+        <item name="android:listDivider">@color/colorVeryLightGrey</item>
+    </style>
+
+    <style name="AppTheme.GreenButton" parent="Widget.AppCompat.Button.Colored">
+        <item name="colorButtonNormal">@color/colorPrimary</item>
+        <item name="android:textColor">@color/colorAccent</item>
+    </style>
+
+    <style name="AppTheme.UninstallButton" parent="Widget.AppCompat.Button">
+        <item name="colorButtonNormal">@color/colorAccent</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+    </style>
+
+    <!--About screen style-->
+    <style name="TextLabel">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">?android:textColorSecondary</item>
+    </style>
+    <style name="About" parent="@style/TextLabel">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_margin">0dp</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:padding">3dp</item>
+    </style>
+    <style name="Card">
+        <item name="cardCornerRadius">@dimen/card_radius</item>
+        <item name="cardElevation">@dimen/card_elevation</item>
+        <item name="cardMaxElevation">@dimen/card_elevation</item>
+        <item name="cardUseCompatPadding">true</item>
+        <item name="cardPreventCornerOverlap">true</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:clickable">true</item>
+    </style>
+
+    <style name="Cover">
+        <item name="android:layout_height">@dimen/profile_picture_size</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:scaleType">centerCrop</item>
+    </style>
+    <style name="Name" parent="@style/TextLabel">
+        <item name="android:maxLines">2</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">21sp</item>
+        <item name="android:textColor">?android:textColorPrimary</item>
+    </style>
+
+
+    <style name="SubTitle" parent="@style/TextLabel">
+        <item name="android:textSize">16sp</item>
+        <item name="android:paddingLeft">30dp</item>
+        <item name="android:paddingRight">30dp</item>
+        <item name="android:paddingBottom">15dp</item>
+        <item name="android:textColor">?android:textColorSecondary</item>
+    </style>
+
+    <style name="Brief" parent="@style/TextLabel">
+        <item name="android:textSize">16sp</item>
+        <item name="android:paddingLeft">30dp</item>
+        <item name="android:paddingRight">30dp</item>
+        <item name="android:paddingBottom">15dp</item>
+    </style>
+
+    <!--AImage picker n compressor-->
+    <style name="transparentFrameWindowStyle" parent="android:style/Theme.Dialog">
+        <item name="android:windowBackground">@drawable/imagepicker_photo_choose_bg</item>
+    </style>
+</resources>

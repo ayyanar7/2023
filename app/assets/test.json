@@ -1,0 +1,496 @@
+{
+  "drawable":"Inventories",
+  "issubTabExist":true,
+  "title":"Inventories",
+  "options":[
+    {
+      "drawable":"Stock-in-Trade",
+      "isSubSubTabExist":true,
+      "options":[
+        {
+          "drawable":"View",
+          "title":"View",
+          "pageViewType":0,
+          "sectionlist":[
+            {
+              "itemsType":0,
+              "itemslist":[
+                {
+                  "actiontext":"",
+                  "drawableMain":-1,
+                  "drawableoptions":-1,
+                  "mDescription":"Description ",
+                  "mSummaryText":null,
+                  "mThumbnailUrl":null,
+                  "mTitle":"Item 0",
+                  "numerictext":"",
+                  "numerictext2":"",
+                  "subTitle":"",
+                  "type":0
+                },
+                {
+                  "actiontext":"",
+                  "drawableMain":-1,
+                  "drawableoptions":-1,
+                  "mDescription":"Description ",
+                  "mSummaryText":null,
+                  "mThumbnailUrl":null,
+                  "mTitle":"Item 9",
+                  "numerictext":"",
+                  "numerictext2":"",
+                  "subTitle":"",
+                  "type":0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "pagerContent":null,
+      "title":"Stock-in-Trade"
+    },
+    {
+      "drawable":"",
+      "isSubSubTabExist":false,
+      "options":null,
+      "pagerContent":{
+        "pageViewType":0,
+        "sectionlist":[
+          {
+            "itemsType":0,
+            "itemslist":[
+              {
+                "actiontext":"",
+                "drawableMain":-1,
+                "drawableoptions":-1,
+                "mDescription":"Description ",
+                "mSummaryText":null,
+                "mThumbnailUrl":null,
+                "mTitle":"Item 0",
+                "numerictext":"",
+                "numerictext2":"",
+                "subTitle":"",
+                "type":0
+              },
+              {
+                "actiontext":"",
+                "drawableMain":-1,
+                "drawableoptions":-1,
+                "mDescription":"Description ",
+                "mSummaryText":null,
+                "mThumbnailUrl":null,
+                "mTitle":"Item 1",
+                "numerictext":"",
+                "numerictext2":"",
+                "subTitle":"",
+                "type":0
+              },
+              {
+                "actiontext":"",
+                "drawableMain":-1,
+                "drawableoptions":-1,
+                "mDescription":"Description ",
+                "mSummaryText":null,
+                "mThumbnailUrl":null,
+                "mTitle":"Item 2",
+                "numerictext":"",
+                "numerictext2":"",
+                "subTitle":"",
+                "type":0
+              },
+              {
+                "actiontext":"",
+                "drawableMain":-1,
+                "drawableoptions":-1,
+                "mDescription":"Description ",
+                "mSummaryText":null,
+                "mThumbnailUrl":null,
+                "mTitle":"Item 3",
+                "numerictext":"",
+                "numerictext2":"",
+                "subTitle":"",
+                "type":0
+              },
+              {
+                "actiontext":"",
+                "drawableMain":-1,
+                "drawableoptions":-1,
+                "mDescription":"Description ",
+                "mSummaryText":null,
+                "mThumbnailUrl":null,
+                "mTitle":"Item 4",
+                "numerictext":"",
+                "numerictext2":"",
+                "subTitle":"",
+                "type":0
+              },
+              {
+                "actiontext":"",
+                "drawableMain":-1,
+                "drawableoptions":-1,
+                "mDescription":"Description ",
+                "mSummaryText":null,
+                "mThumbnailUrl":null,
+                "mTitle":"Item 5",
+                "numerictext":"",
+                "numerictext2":"",
+                "subTitle":"",
+                "type":0
+              },
+              {
+                "actiontext":"",
+                "drawableMain":-1,
+                "drawableoptions":-1,
+                "mDescription":"Description ",
+                "mSummaryText":null,
+                "mThumbnailUrl":null,
+                "mTitle":"Item 6",
+                "numerictext":"",
+                "numerictext2":"",
+                "subTitle":"",
+                "type":0
+              },
+              {
+                "actiontext":"",
+                "drawableMain":-1,
+                "drawableoptions":-1,
+                "mDescription":"Description ",
+                "mSummaryText":null,
+                "mThumbnailUrl":null,
+                "mTitle":"Item 7",
+                "numerictext":"",
+                "numerictext2":"",
+                "subTitle":"",
+                "type":0
+              },
+              {
+                "actiontext":"",
+                "drawableMain":-1,
+                "drawableoptions":-1,
+                "mDescription":"Description ",
+                "mSummaryText":null,
+                "mThumbnailUrl":null,
+                "mTitle":"Item 8",
+                "numerictext":"",
+                "numerictext2":"",
+                "subTitle":"",
+                "type":0
+              },
+              {
+                "actiontext":"",
+                "drawableMain":-1,
+                "drawableoptions":-1,
+                "mDescription":"Description ",
+                "mSummaryText":null,
+                "mThumbnailUrl":null,
+                "mTitle":"Item 9",
+                "numerictext":"",
+                "numerictext2":"",
+                "subTitle":"",
+                "type":0
+              }
+            ]
+          }
+        ]
+      },
+      "title":""
+    },
+    {
+      "drawable":"Remove Product",
+      "isSubSubTabExist":true,
+      "options":[
+        {
+          "drawable":"View",
+          "title":"View",
+          "pageViewType":0,
+          "sectionlist":[
+            {
+              "itemsType":0,
+              "itemslist":[
+                {
+                  "actiontext":"",
+                  "drawableMain":-1,
+                  "drawableoptions":-1,
+                  "mDescription":"Description ",
+                  "mSummaryText":null,
+                  "mThumbnailUrl":null,
+                  "mTitle":"Item 0",
+                  "numerictext":"",
+                  "numerictext2":"",
+                  "subTitle":"",
+                  "type":0
+                },
+                {
+                  "actiontext":"",
+                  "drawableMain":-1,
+                  "drawableoptions":-1,
+                  "mDescription":"Description ",
+                  "mSummaryText":null,
+                  "mThumbnailUrl":null,
+                  "mTitle":"Item 1",
+                  "numerictext":"",
+                  "numerictext2":"",
+                  "subTitle":"",
+                  "type":0
+                },
+                {
+                  "actiontext":"",
+                  "drawableMain":-1,
+                  "drawableoptions":-1,
+                  "mDescription":"Description ",
+                  "mSummaryText":null,
+                  "mThumbnailUrl":null,
+                  "mTitle":"Item 2",
+                  "numerictext":"",
+                  "numerictext2":"",
+                  "subTitle":"",
+                  "type":0
+                },
+                {
+                  "actiontext":"",
+                  "drawableMain":-1,
+                  "drawableoptions":-1,
+                  "mDescription":"Description ",
+                  "mSummaryText":null,
+                  "mThumbnailUrl":null,
+                  "mTitle":"Item 3",
+                  "numerictext":"",
+                  "numerictext2":"",
+                  "subTitle":"",
+                  "type":0
+                },
+                {
+                  "actiontext":"",
+                  "drawableMain":-1,
+                  "drawableoptions":-1,
+                  "mDescription":"Description ",
+                  "mSummaryText":null,
+                  "mThumbnailUrl":null,
+                  "mTitle":"Item 4",
+                  "numerictext":"",
+                  "numerictext2":"",
+                  "subTitle":"",
+                  "type":0
+                },
+                {
+                  "actiontext":"",
+                  "drawableMain":-1,
+                  "drawableoptions":-1,
+                  "mDescription":"Description ",
+                  "mSummaryText":null,
+                  "mThumbnailUrl":null,
+                  "mTitle":"Item 5",
+                  "numerictext":"",
+                  "numerictext2":"",
+                  "subTitle":"",
+                  "type":0
+                },
+                {
+                  "actiontext":"",
+                  "drawableMain":-1,
+                  "drawableoptions":-1,
+                  "mDescription":"Description ",
+                  "mSummaryText":null,
+                  "mThumbnailUrl":null,
+                  "mTitle":"Item 6",
+                  "numerictext":"",
+                  "numerictext2":"",
+                  "subTitle":"",
+                  "type":0
+                },
+                {
+                  "actiontext":"",
+                  "drawableMain":-1,
+                  "drawableoptions":-1,
+                  "mDescription":"Description ",
+                  "mSummaryText":null,
+                  "mThumbnailUrl":null,
+                  "mTitle":"Item 7",
+                  "numerictext":"",
+                  "numerictext2":"",
+                  "subTitle":"",
+                  "type":0
+                },
+                {
+                  "actiontext":"",
+                  "drawableMain":-1,
+                  "drawableoptions":-1,
+                  "mDescription":"Description ",
+                  "mSummaryText":null,
+                  "mThumbnailUrl":null,
+                  "mTitle":"Item 8",
+                  "numerictext":"",
+                  "numerictext2":"",
+                  "subTitle":"",
+                  "type":0
+                },
+                {
+                  "actiontext":"",
+                  "drawableMain":-1,
+                  "drawableoptions":-1,
+                  "mDescription":"Description ",
+                  "mSummaryText":null,
+                  "mThumbnailUrl":null,
+                  "mTitle":"Item 9",
+                  "numerictext":"",
+                  "numerictext2":"",
+                  "subTitle":"",
+                  "type":0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "pagerContent":null,
+      "title":"Remove Product"
+    },
+    {
+      "drawable":"",
+      "isSubSubTabExist":false,
+      "options":null,
+      "pagerContent":{
+        "pageViewType":0,
+        "sectionlist":[
+          {
+            "itemsType":0,
+            "itemslist":[
+              {
+                "actiontext":"",
+                "drawableMain":-1,
+                "drawableoptions":-1,
+                "mDescription":"Description ",
+                "mSummaryText":null,
+                "mThumbnailUrl":null,
+                "mTitle":"Item 0",
+                "numerictext":"",
+                "numerictext2":"",
+                "subTitle":"",
+                "type":0
+              },
+              {
+                "actiontext":"",
+                "drawableMain":-1,
+                "drawableoptions":-1,
+                "mDescription":"Description ",
+                "mSummaryText":null,
+                "mThumbnailUrl":null,
+                "mTitle":"Item 1",
+                "numerictext":"",
+                "numerictext2":"",
+                "subTitle":"",
+                "type":0
+              },
+              {
+                "actiontext":"",
+                "drawableMain":-1,
+                "drawableoptions":-1,
+                "mDescription":"Description ",
+                "mSummaryText":null,
+                "mThumbnailUrl":null,
+                "mTitle":"Item 2",
+                "numerictext":"",
+                "numerictext2":"",
+                "subTitle":"",
+                "type":0
+              },
+              {
+                "actiontext":"",
+                "drawableMain":-1,
+                "drawableoptions":-1,
+                "mDescription":"Description ",
+                "mSummaryText":null,
+                "mThumbnailUrl":null,
+                "mTitle":"Item 3",
+                "numerictext":"",
+                "numerictext2":"",
+                "subTitle":"",
+                "type":0
+              },
+              {
+                "actiontext":"",
+                "drawableMain":-1,
+                "drawableoptions":-1,
+                "mDescription":"Description ",
+                "mSummaryText":null,
+                "mThumbnailUrl":null,
+                "mTitle":"Item 4",
+                "numerictext":"",
+                "numerictext2":"",
+                "subTitle":"",
+                "type":0
+              },
+              {
+                "actiontext":"",
+                "drawableMain":-1,
+                "drawableoptions":-1,
+                "mDescription":"Description ",
+                "mSummaryText":null,
+                "mThumbnailUrl":null,
+                "mTitle":"Item 5",
+                "numerictext":"",
+                "numerictext2":"",
+                "subTitle":"",
+                "type":0
+              },
+              {
+                "actiontext":"",
+                "drawableMain":-1,
+                "drawableoptions":-1,
+                "mDescription":"Description ",
+                "mSummaryText":null,
+                "mThumbnailUrl":null,
+                "mTitle":"Item 6",
+                "numerictext":"",
+                "numerictext2":"",
+                "subTitle":"",
+                "type":0
+              },
+              {
+                "actiontext":"",
+                "drawableMain":-1,
+                "drawableoptions":-1,
+                "mDescription":"Description ",
+                "mSummaryText":null,
+                "mThumbnailUrl":null,
+                "mTitle":"Item 7",
+                "numerictext":"",
+                "numerictext2":"",
+                "subTitle":"",
+                "type":0
+              },
+              {
+                "actiontext":"",
+                "drawableMain":-1,
+                "drawableoptions":-1,
+                "mDescription":"Description ",
+                "mSummaryText":null,
+                "mThumbnailUrl":null,
+                "mTitle":"Item 8",
+                "numerictext":"",
+                "numerictext2":"",
+                "subTitle":"",
+                "type":0
+              },
+              {
+                "actiontext":"",
+                "drawableMain":-1,
+                "drawableoptions":-1,
+                "mDescription":"Description ",
+                "mSummaryText":null,
+                "mThumbnailUrl":null,
+                "mTitle":"Item 9",
+                "numerictext":"",
+                "numerictext2":"",
+                "subTitle":"",
+                "type":0
+              }
+            ]
+          }
+        ]
+      },
+      "title":""
+    }
+  ]
+
+}

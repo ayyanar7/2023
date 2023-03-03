@@ -1,0 +1,125 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="100dp">
+
+    <TextView
+        android:id="@+id/Sno"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:padding="10dp"
+        android:text="1" />
+
+    <ImageView
+        android:id="@+id/card_image"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_centerVertical="true"
+        android:layout_toEndOf="@id/Sno"
+        android:contentDescription="@string/app_name"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_launcher" />
+
+    <RelativeLayout
+        android:id="@+id/rl_app_item"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:layout_alignTop="@id/card_image"
+        android:layout_toEndOf="@+id/card_image"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp">
+
+        <ImageView
+            android:id="@+id/card_options_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/ic_more_vert_black_18dp" />
+
+        <TextView
+            android:id="@+id/card_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            android:text="@string/card_app_name"
+            android:textColor="@color/colorBlack"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/card_subtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/card_title"
+            android:layout_marginEnd="20dp"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            android:text="@string/card_app_name"
+            android:textSize="12sp" />
+
+        <RelativeLayout
+            android:id="@+id/rl_2_app_item"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true">
+
+            <TextView
+                android:id="@+id/card_numerictext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="2dp"
+                android:paddingEnd="2dp"
+                android:text="@string/demo_size"
+                android:textSize="12sp" />
+
+<!--            <ImageView-->
+<!--                android:id="@+id/card_options_image2"-->
+<!--                android:layout_width="5dp"-->
+<!--                android:layout_height="5dp"-->
+<!--                android:layout_alignTop="@id/card_numerictext"-->
+<!--                android:layout_alignBottom="@id/card_numerictext"-->
+<!--                android:layout_toEndOf="@id/card_numerictext"-->
+<!--                android:contentDescription="@string/app_name"-->
+<!--                android:src="@drawable/ic_launcher" />-->
+
+            <TextView
+                android:id="@+id/card_numerictext2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/card_numerictext"
+                android:drawablePadding="5dp"
+                android:paddingStart="2dp"
+                android:paddingEnd="2dp"
+                android:text="@string/sample_rating"
+                android:textSize="12sp" />
+
+            <ImageView
+                android:id="@+id/card_options_image2"
+                android:layout_width="8dp"
+                android:layout_height="8dp"
+                android:layout_alignTop="@id/card_numerictext2"
+                android:layout_alignBottom="@id/card_numerictext2"
+                android:layout_toEndOf="@id/card_numerictext2"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/ic_star_black_18dp" />
+
+            <TextView
+                android:id="@+id/card_actiontext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:text="@string/free"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="12sp"
+                tools:ignore="RelativeOverlap,SmallSp" />
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+</RelativeLayout>
+

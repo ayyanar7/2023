@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <ImageView
+        android:id="@+id/cover"
+
+        android:paddingTop="2dp"        
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+         android:layout_alignParentTop="true"
+        android:src="@drawable/ic_launcher_foreground" />
+
+    <com.ag.bta.main.wavelayout.view.WaveLayoutRecyclerView
+        android:id="@+id/wavelayout_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/cover"
+        android:paddingBottom="50dp"
+        android:paddingTop="10dp"
+        app:rv_demolayout="@layout/wavelayout_preload_grid"
+        app:rv_layoutmanager_type="grid"
+        app:rv_wave_color ="#21ffffff" />
+
+</RelativeLayout>
+
