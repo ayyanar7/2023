@@ -36,11 +36,7 @@ public class TreeViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         this.viewBinders = viewBinders;
     }
 
-    /**
-     * 从nodes的结点中寻找展开了的非叶结点，添加到displayNodes中。
-     *
-     * @param nodes 基准点
-     */
+
     private void findDisplayNodes(List<TreeNode> nodes) {
         for (TreeNode node : nodes) {
             displayNodes.add(node);

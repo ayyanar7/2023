@@ -1,11 +1,13 @@
 package com.ag.bta.ui.treeview;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
 
+import androidx.annotation.DrawableRes;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -37,39 +39,27 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initData() {
+        @DrawableRes
+        int dirIcon =   R.drawable.about_ads;
+        @DrawableRes
+        int fileIcon =   R.drawable.about_help;
+
         List<TreeNode> nodes = new ArrayList<>();
-        TreeNode<Dir> app = new TreeNode<>(new Dir("app"));
-        nodes.add(app);
-        app.addChild(
-                new TreeNode<>(new Dir("manifests"))
-                        .addChild(new TreeNode<>(new File("AndroidManifest.xml")))
-        );
-        app.addChild(
-                new TreeNode<>(new Dir("java")).addChild(
-                        new TreeNode<>(new Dir("tellh")).addChild(
-                                new TreeNode<>(new Dir("com")).addChild(
-                                        new TreeNode<>(new Dir("recyclertreeview"))
-                                                .addChild(new TreeNode<>(new File("Dir")))
-                                                .addChild(new TreeNode<>(new File("DirectoryNodeBinder")))
-                                                .addChild(new TreeNode<>(new File("File")))
-                                                .addChild(new TreeNode<>(new File("FileNodeBinder")))
-                                                .addChild(new TreeNode<>(new File("TreeViewBinder")))
-                                )
-                        )
-                )
-        );
-        TreeNode<Dir> res = new TreeNode<>(new Dir("res"));
-        nodes.add(res);
-        res.addChild(
-                new TreeNode<>(new Dir("layout")).lock() // lock this TreeNode
-                        .addChild(new TreeNode<>(new File("activity_main.xml")))
-                        .addChild(new TreeNode<>(new File("item_dir.xml")))
-                        .addChild(new TreeNode<>(new File("item_file.xml")))
-        );
-        res.addChild(
-                new TreeNode<>(new Dir("mipmap"))
-                        .addChild(new TreeNode<>(new File("ic_launcher.png")))
-        );
+        TreeNode<Dir> about = new TreeNode<>(new Dir("About", fileIcon, true)).lock();
+        nodes.add(about);
+        TreeNode<Dir> settings = new TreeNode<>(new Dir("Settings", fileIcon, false));
+        nodes.add(settings);
+        settings.addChild( new TreeNode<>(new File("General Settings", fileIcon)) );
+        settings.addChild( new TreeNode<>(new File("Application Settings", fileIcon)) );
+
+        TreeNode<Dir> configuration = new TreeNode<>(new Dir("Configuration", fileIcon, false));
+        nodes.add(configuration);
+        configuration.addChild(new TreeNode<>(new File("Add Product", fileIcon)))
+                .addChild(new TreeNode<>(new File("Delete Product", fileIcon)))
+                .addChild(new TreeNode<>(new File("View", fileIcon)));
+
+        TreeNode<Dir> pref = new TreeNode<>(new Dir("Prefrences", fileIcon, true)).lock();
+        nodes.add(pref);
 
         rv.setLayoutManager(new LinearLayoutManager(this));
         adapter = new TreeViewAdapter(nodes, Arrays.asList(new FileNodeBinder(), new DirectoryNodeBinder()));

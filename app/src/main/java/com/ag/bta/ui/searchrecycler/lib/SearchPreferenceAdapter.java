@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
+import com.ag.bta.main.R;
 
 class SearchPreferenceAdapter extends RecyclerView.Adapter<SearchPreferenceAdapter.ViewHolder> {
     private List<ListItem> dataset;
@@ -28,11 +29,11 @@ class SearchPreferenceAdapter extends RecyclerView.Adapter<SearchPreferenceAdapt
         if (viewType == PreferenceItem.TYPE) {
             return new PreferenceViewHolder(
                     LayoutInflater.from(parent.getContext()).inflate(
-                            com.bytehamster.lib.preferencesearch.R.layout.searchpreference_list_item_result, parent, false));
+                            R.layout.searchpreference_list_item_result, parent, false));
         } else {
             return new HistoryViewHolder(
                     LayoutInflater.from(parent.getContext()).inflate(
-                            com.bytehamster.lib.preferencesearch.R.layout.searchpreference_list_item_history, parent, false));
+                             R.layout.searchpreference_list_item_history, parent, false));
         }
     }
 
@@ -112,7 +113,7 @@ class SearchPreferenceAdapter extends RecyclerView.Adapter<SearchPreferenceAdapt
         TextView term;
         HistoryViewHolder(View v) {
             super(v);
-            term = v.findViewById(com.bytehamster.lib.preferencesearch.R.id.term);
+            term = v.findViewById( R.id.term);
         }
     }
 
@@ -122,9 +123,9 @@ class SearchPreferenceAdapter extends RecyclerView.Adapter<SearchPreferenceAdapt
         TextView breadcrumbs;
         PreferenceViewHolder(View v) {
             super(v);
-            title = v.findViewById(com.bytehamster.lib.preferencesearch.R.id.title);
-            summary = v.findViewById(com.bytehamster.lib.preferencesearch.R.id.summary);
-            breadcrumbs = v.findViewById(com.bytehamster.lib.preferencesearch.R.id.breadcrumbs);
+            title = v.findViewById( R.id.title);
+            summary = v.findViewById( R.id.summary);
+            breadcrumbs = v.findViewById( R.id.breadcrumbs);
         }
     }
 }

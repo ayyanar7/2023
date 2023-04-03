@@ -8,14 +8,13 @@
 <!--        <item name="colorAccent">@color/colorAccent</item>-->
 <!--    </style>-->
     <style name="MyMaterialTheme" parent="MyMaterialTheme.Base">
-
     </style>
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 <!--  Recycler..-->
     <style name="ScrollbarRecycler" parent="android:Widget">
 <item name = "android:scrollbars">vertical</item>
     </style>
-    <style name="MyMaterialTheme.Base" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="MyMaterialTheme.Base" parent="Theme.MaterialComponents.Light.DarkActionBar">
         <item name="windowNoTitle">true</item>
         <item name="windowActionBar">false</item>
         <item name="colorPrimary">@color/colorPrimary</item>

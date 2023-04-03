@@ -7,11 +7,12 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.bytehamster.lib.preferencesearch.SearchConfiguration;
-import com.bytehamster.lib.preferencesearch.SearchPreferenceFragment;
-import com.bytehamster.lib.preferencesearch.SearchPreferenceResult;
-import com.bytehamster.lib.preferencesearch.SearchPreferenceResultListener;
-import com.bytehamster.preferencesearch.R;
+import com.ag.bta.main.R;
+import com.ag.bta.ui.searchrecycler.lib.SearchPreferenceResultListener;
+import com.ag.bta.ui.searchrecycler.lib.SearchPreferenceResult;
+import com.ag.bta.ui.searchrecycler.lib.SearchPreferenceFragment;
+
+import com.ag.bta.ui.searchrecycler.lib.SearchConfiguration;
 
 /**
  * This file demonstrates how to use the library without actually displaying the preference

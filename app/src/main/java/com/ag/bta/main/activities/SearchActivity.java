@@ -3,8 +3,10 @@ package com.ag.bta.main.activities;
 import android.os.Bundle;
 import android.widget.FrameLayout;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.preference.PreferenceFragmentCompat;
 
 import com.ag.bta.constants.Global;
 import com.ag.bta.constants.database.ColumnName;
@@ -16,6 +18,11 @@ import com.ag.bta.main.models.home.Container;
 import com.ag.bta.main.models.home.PagerContent;
 import com.ag.bta.main.viewPager.CustomViewPager;
 import com.ag.bta.test.jsongenerator.ApplicationJsongenerator;
+import com.ag.bta.ui.searchrecycler.SimpleExample;
+import com.ag.bta.ui.searchrecycler.lib.SearchConfiguration;
+import com.ag.bta.ui.searchrecycler.lib.SearchPreference;
+import com.ag.bta.ui.searchrecycler.lib.SearchPreferenceResult;
+import com.ag.bta.ui.searchrecycler.lib.SearchPreferenceResultListener;
 import com.ag.bta.utils.GsonUtils;
 import com.ag.bta.utils.Log;
 import com.ag.bta.utils.database.sqlite.DesignTable;
@@ -23,10 +30,11 @@ import com.arlib.floatingsearchview.FloatingSearchView;
 
 import java.util.HashMap;
 
-public class SearchActivity extends AppCompatActivity {
+public class SearchActivity extends AppCompatActivity  implements SearchPreferenceResultListener {
       protected FloatingSearchView mSearchView = null;
     CustomViewPager mainViewPager  = null;
     FrameLayout framelayout = null;
+    private SimpleExample.PrefsFragment prefsFragment;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +43,11 @@ public class SearchActivity extends AppCompatActivity {
         framelayout = findViewById(R.id.homeframelayout);
         mainViewPager = (CustomViewPager) findViewById(R.id.mainViewPager);
 init();
+//unhide while implementing search
+        // temporarily hided for  purpose
+//        prefsFragment = new SimpleExample.PrefsFragment();
+//        getSupportFragmentManager().beginTransaction()
+//                .replace( R.id.homeframelayout, prefsFragment).commit();
         mSearchView.setOnQueryChangeListener(new FloatingSearchView.OnQueryChangeListener() {
             @Override
             public void onSearchTextChanged(String oldQuery, final String newQuery) {
@@ -44,7 +57,23 @@ init();
 
 
     }
+    @Override
+    public void onSearchResultClicked(@NonNull SearchPreferenceResult result) {
+        result.closeSearchPage(this);
+        result.highlight(prefsFragment);
+    }
 
+    public static class PrefsFragment extends PreferenceFragmentCompat {
+        @Override
+        public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
+            addPreferencesFromResource(R.xml.preferences);
+
+            SearchPreference searchPreference = (SearchPreference) findPreference("searchPreference");
+            SearchConfiguration config = searchPreference.getSearchConfiguration();
+            config.setActivity((AppCompatActivity) getActivity());
+            config.index(R.xml.preferences);
+        }
+    }
 
     private void init(){
         Global.APPLICATION_PACKAGE =  getApplicationContext().getPackageName();
@@ -94,6 +123,7 @@ init();
 
 
     }
+
 
 }
 

@@ -3,12 +3,15 @@ package com.ag.bta.main.activities;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ExpandableListView;
+import android.widget.ImageView;
 
+import androidx.annotation.DrawableRes;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -17,29 +20,38 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.ag.bta.main.R;
 import com.ag.bta.main.fragments.AdminAboutFragment;
 import com.ag.bta.ui.inventories.AddItemFragment;
 import com.ag.bta.ui.inventories.DeleteItemsFragment;
-import  com.ag.bta.ui.navigationdrawer.Utils.Common;
-import com.ag.bta.ui.navigationdrawer.model.ChildModel;
-import com.ag.bta.ui.navigationdrawer.model.HeaderModel;
-import com.ag.bta.ui.navigationdrawer.ui.NavigationListView;
+
+import com.ag.bta.ui.treeview.bean.Dir;
+import com.ag.bta.ui.treeview.bean.File;
+import com.ag.bta.ui.treeview.treeviewlib.TreeNode;
+import com.ag.bta.ui.treeview.treeviewlib.TreeViewAdapter;
+import com.ag.bta.ui.treeview.viewbinder.DirectoryNodeBinder;
+import com.ag.bta.ui.treeview.viewbinder.FileNodeBinder;
+import com.ag.bta.utils.Log;
 import com.bumptech.glide.Glide;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class NavigationDrawerActivity extends SearchActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        {
 
     private DrawerLayout drawer;
-    private ActionBarDrawerToggle toggle;
-    private NavigationView navigationView;
-    private NavigationListView listView;
-    private Context context;
 
+    private Context context;
+    private RecyclerView rv;
+    private TreeViewAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,89 +77,79 @@ public class NavigationDrawerActivity extends SearchActivity
                 .load(R.drawable.logo)
                 .into(profileImageView);
 
-        listView = findViewById(R.id.expandable_navigation);
-
-        navigationView.setNavigationItemSelectedListener(this);
-
-        listView.init(this)
-                .addHeaderModel(new HeaderModel("About"))
-                .addHeaderModel(new HeaderModel("Cart",  R.drawable.navdrawer_cardbackgroud, true,true, false, Color.WHITE))
-                .addHeaderModel(
-                        new HeaderModel("Configure", -1,true)
-                                .addChildModel(new ChildModel("Add Inventries"))
-                                .addChildModel(new ChildModel("Edit Inventries"))
-                                .addChildModel(new ChildModel("Delete Inventries"))
-                                .addChildModel(new ChildModel("Trash"))
-                )
-                .addHeaderModel(new HeaderModel("Orders"))
-                .addHeaderModel(new HeaderModel("Wishlist"))
-                .addHeaderModel(new HeaderModel("Notifications"))
-                .build()
-                .addOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
-                    @Override
-                    public boolean onGroupClick(ExpandableListView parent, View v, int groupPosition, long id) {
-                        mainViewPager.setVisibility(View.GONE);
-                        framelayout.setVisibility(View.VISIBLE);
-                        listView.setSelected(groupPosition);
-
-                        //drawer.closeDrawer(GravityCompat.START);
-                        if (id == 0) {
-                            //Home Menu
-                            Common.showToast(context, "Home Select");
-                            AdminAboutFragment about = new AdminAboutFragment();
-                            loadFragment(about);
-
-                            drawer.closeDrawer(GravityCompat.START);
-                        } else if (id == 1) {
-                            //Cart Menu
-                            Common.showToast(context, "Cart Select");
-                            drawer.closeDrawer(GravityCompat.START);
-                        } /*else if (id == 2) {
-                            //Categories Menu
-                            Common.showToast(context, "Configure  Select");
-                        }*/else if (id == 3) {
-                            //Orders Menu
-                            Common.showToast(context, "Orders");
-                            drawer.closeDrawer(GravityCompat.START);
-                        } else if (id == 4) {
-                            //Wishlist Menu
-                            Common.showToast(context, "Wishlist Selected");
-                            drawer.closeDrawer(GravityCompat.START);
-                        } else if (id == 5) {
-                            //Notifications Menu
-                            Common.showToast(context, "Notifications");
-                            drawer.closeDrawer(GravityCompat.START);
-                        }
-                        return false;
-                    }
-                })
-                .addOnChildClickListener(new ExpandableListView.OnChildClickListener() {
-                    @Override
-                    public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
-                        listView.setSelected(groupPosition, childPosition);
-                        if (id == 0) {
-
-                            AddItemFragment addProduct = new AddItemFragment();
-                            loadFragment(addProduct);
-                            Common.showToast(context, "Add");
-                        } else if (id == 1) {
-                            DeleteItemsFragment deleteProduct = new DeleteItemsFragment();
-                            loadFragment(deleteProduct);
-                            Common.showToast(context, "Delete");
-                        } else if (id == 2) {
-                            Common.showToast(context, "Babies and Family");
-                        } else if (id == 3) {
-                            Common.showToast(context, "Health");
-                        }
-
-                        drawer.closeDrawer(GravityCompat.START);
-                        return false;
-                    }
-                });
+        initView();
+        initData();
         //listView.expandGroup(2);
 
         mSearchView.attachNavigationDrawerToMenuButton(drawer);
     }
+
+
+
+
+    private void initData() {
+        @DrawableRes
+        int dirIcon =   R.drawable.about_ads;
+        @DrawableRes
+        int fileIcon =   R.drawable.about_help;
+        List<TreeNode> nodes = new ArrayList<>();
+
+        TreeNode<Dir> about = new TreeNode<>(new Dir("About", dirIcon, true)).lock();
+        nodes.add(about);
+        TreeNode<Dir> settings = new TreeNode<>(new Dir("Settings", dirIcon, false));
+        nodes.add(settings);
+        settings.addChild( new TreeNode<>(new File("General Settings", fileIcon)) );
+        settings.addChild( new TreeNode<>(new File("Application Settings", fileIcon)) );
+
+        TreeNode<Dir> configuration = new TreeNode<>(new Dir("Configuration", dirIcon, false));
+        nodes.add(configuration);
+        configuration.addChild(new TreeNode<>(new File("Add Product", fileIcon)))
+                .addChild(new TreeNode<>(new File("Delete Product", fileIcon)))
+                .addChild(new TreeNode<>(new File("View", fileIcon)));
+
+        TreeNode<Dir> pref = new TreeNode<>(new Dir("Prefrences", dirIcon, true)).lock();
+        nodes.add(pref);
+        TreeNode<Dir> export = new TreeNode<>(new Dir("Export Product details", dirIcon, true)).lock();
+        nodes.add(export);
+        TreeNode<Dir> imprt = new TreeNode<>(new Dir("Import Product details", dirIcon, true)).lock();
+        nodes.add(imprt);
+        TreeNode<Dir> orderDetails = new TreeNode<>(new Dir("Order details", dirIcon, true)).lock();
+        nodes.add(orderDetails);
+
+        rv.setLayoutManager(new LinearLayoutManager(this));
+        adapter = new TreeViewAdapter(nodes, Arrays.asList(new FileNodeBinder(), new DirectoryNodeBinder()));
+        // whether collapse child nodes when their parent node was close.
+//        adapter.ifCollapseChildWhileCollapseParent(true);
+        adapter.setOnTreeNodeListener(new TreeViewAdapter.OnTreeNodeListener() {
+            @Override
+            public boolean onClick(TreeNode node, RecyclerView.ViewHolder holder) {
+                Log.d(node.toString());
+                Log.d(holder.toString());
+                if (!node.isLeaf()) {
+                    //Update and toggle the node.
+                    onToggle(!node.isExpand(), holder);
+//                    if (!node.isExpand())
+//                        adapter.collapseBrotherNode(node);
+                }
+                return false;
+            }
+
+            @Override
+            public void onToggle(boolean isExpand, RecyclerView.ViewHolder holder) {
+                DirectoryNodeBinder.ViewHolder dirViewHolder = (DirectoryNodeBinder.ViewHolder) holder;
+                final ImageView ivArrow = dirViewHolder.getIvArrow();
+                int rotateDegree = isExpand ? 90 : -90;
+                ivArrow.animate().rotationBy(rotateDegree)
+                        .start();
+            }
+        });
+        rv.setAdapter(adapter);
+    }
+
+    private void initView() {
+        rv = (RecyclerView) findViewById(R.id.rv);
+    }
+
 
     @Override
     public void onBackPressed() {
@@ -182,29 +184,6 @@ public class NavigationDrawerActivity extends SearchActivity
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
-    @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
-        int id = item.getItemId();
-
-       /* if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
-        }*/
-
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
-    }
 
     private void loadFragment(Fragment fragment){
         FragmentManager fm = getSupportFragmentManager();

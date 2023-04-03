@@ -18,7 +18,7 @@ import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.PreferenceGroup;
 import androidx.recyclerview.widget.RecyclerView;
-
+import com.ag.bta.main.R;
 
 public class SearchPreferenceResult {
     private final String key;
@@ -108,7 +108,7 @@ public class SearchPreferenceResult {
 
         final Drawable oldIcon = prefResult.getIcon();
         final boolean oldSpaceReserved = prefResult.isIconSpaceReserved();
-        Drawable arrow = AppCompatResources.getDrawable(prefsFragment.getContext(), com.bytehamster.lib.preferencesearch.R.drawable.searchpreference_ic_arrow_right);
+        Drawable arrow = AppCompatResources.getDrawable(prefsFragment.getContext(),  R.drawable.searchpreference_ic_arrow_right);
         arrow.setColorFilter(color, PorterDuff.Mode.SRC_IN);
         prefResult.setIcon(arrow);
         prefsFragment.scrollToPreference(prefResult);

@@ -25,22 +25,23 @@
         android:theme="@style/NavigationView"
         app:headerLayout="@layout/navdrawer_header_main"
          >
-
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="20dp"
+    >
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="170dp">
-
-            <com.ag.bta.ui.navigationdrawer.ui.NavigationListView
-                android:id="@+id/expandable_navigation"
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_gravity="left"
-                android:divider="@null"
-                android:groupIndicator="@null"
-                android:scrollbars="vertical" />
-        </ScrollView>
+                tools:context="com.ag.bta.main.activities.NavigationDrawerActivity" />
 
+        </ScrollView>
+</LinearLayout>
     </com.google.android.material.navigation.NavigationView>
 
     <!--    app:menu="@menu/menu_nav_drawer"-->

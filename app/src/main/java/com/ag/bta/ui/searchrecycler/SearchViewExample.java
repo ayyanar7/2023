@@ -10,16 +10,14 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceFragmentCompat;
 
-import com.bytehamster.lib.preferencesearch.SearchConfiguration;
-import com.bytehamster.lib.preferencesearch.SearchPreference;
-import com.bytehamster.lib.preferencesearch.SearchPreferenceActionView;
-import com.bytehamster.lib.preferencesearch.SearchPreferenceResult;
-import com.bytehamster.lib.preferencesearch.SearchPreferenceResultListener;
-import com.bytehamster.preferencesearch.R;
+import com.ag.bta.main.R;
+import com.ag.bta.ui.searchrecycler.lib.SearchPreferenceResultListener;
+import com.ag.bta.ui.searchrecycler.lib.SearchPreferenceResult;
+import com.ag.bta.ui.searchrecycler.lib.SearchPreference;
+import com.ag.bta.ui.searchrecycler.lib.SearchPreferenceActionView;
+import com.ag.bta.ui.searchrecycler.lib.SearchConfiguration;
 
-/**
- * This file demonstrates how to use the library without actually displaying a PreferenceFragment
- */
+
 public class SearchViewExample extends AppCompatActivity implements SearchPreferenceResultListener {
     private static final String KEY_SEARCH_QUERY = "search_query";
     private static final String KEY_SEARCH_ENABLED = "search_enabled";

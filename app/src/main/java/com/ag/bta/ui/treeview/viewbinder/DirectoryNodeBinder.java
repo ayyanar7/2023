@@ -1,8 +1,15 @@
 package com.ag.bta.ui.treeview.viewbinder;
 
+import android.graphics.Canvas;
+import android.graphics.ColorFilter;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.ag.bta.main.R;
 import com.ag.bta.ui.treeview.bean.Dir;
@@ -25,7 +32,10 @@ public class DirectoryNodeBinder extends TreeViewBinder<DirectoryNodeBinder.View
         holder.ivArrow.setRotation(rotateDegree);
         Dir dirNode = (Dir) node.getContent();
         holder.tvName.setText(dirNode.dirName);
-        if (node.isLeaf())
+
+        holder.imgIcon.setImageResource(dirNode.iconRes);
+
+        if (node.isLeaf() || dirNode.disableArrow)
             holder.ivArrow.setVisibility(View.INVISIBLE);
         else holder.ivArrow.setVisibility(View.VISIBLE);
     }
@@ -38,11 +48,12 @@ public class DirectoryNodeBinder extends TreeViewBinder<DirectoryNodeBinder.View
     public static class ViewHolder extends TreeViewBinder.ViewHolder {
         private ImageView ivArrow;
         private TextView tvName;
-
+        public ImageView imgIcon;
         public ViewHolder(View rootView) {
             super(rootView);
             this.ivArrow = (ImageView) rootView.findViewById(R.id.iv_arrow);
             this.tvName = (TextView) rootView.findViewById(R.id.tv_name);
+            this.imgIcon = (ImageView) rootView.findViewById(R.id.imageIcon);
         }
 
         public ImageView getIvArrow() {

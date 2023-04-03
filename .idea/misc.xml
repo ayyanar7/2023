@@ -3,13 +3,33 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/backup software/Android/Android_SDK/platforms/android-30/data/res/layout/auto_complete_list.xml" value="0.14010416666666667" />
+        <entry key="..\:/backup software/Android/Workspace 2023/WaveLayout/app/src/main/res/drawable/excel_ic_share.xml" value="0.2885" />
+        <entry key="..\:/backup software/Android/Workspace 2023/WaveLayout/app/src/main/res/layout/excel_item_contact.xml" value="0.33061594202898553" />
         <entry key="..\:/backup software/Android/Workspace 2023/WaveLayout/app/src/main/res/layout/home_activity_main.xml" value="0.22" />
         <entry key="..\:/backup software/Android/Workspace 2023/WaveLayout/app/src/main/res/layout/home_app_bar_main.xml" value="0.2" />
+        <entry key="..\:/backup software/Android/Workspace 2023/WaveLayout/app/src/main/res/layout/login_activity_splashs.xml" value="0.20114643043251693" />
         <entry key="..\:/backup software/Android/Workspace 2023/WaveLayout/app/src/main/res/layout/nav_drawer_layout.xml" value="0.17083333333333334" />
         <entry key="..\:/backup software/Android/Workspace 2023/WaveLayout/app/src/main/res/layout/nav_drawer_recycler.xml" value="0.17083333333333334" />
+        <entry key="..\:/backup software/Android/Workspace 2023/WaveLayout/app/src/main/res/layout/nav_list_item.xml" value="0.5" />
+        <entry key="..\:/backup software/Android/Workspace 2023/WaveLayout/app/src/main/res/layout/navdrawer_list_group.xml" value="0.20104166666666667" />
         <entry key="..\:/backup software/Android/Workspace 2023/WaveLayout/app/src/main/res/layout/navdrawer_recyclerview.xml" value="0.17083333333333334" />
+        <entry key="..\:/backup software/Android/Workspace 2023/WaveLayout/app/src/main/res/layout/searchpreference_list_item_history.xml" value="0.20104166666666667" />
+        <entry key="..\:/backup software/Android/Workspace 2023/WaveLayout/app/src/main/res/layout/searchpreference_list_item_result.xml" value="0.20104166666666667" />
+        <entry key="..\:/backup software/Android/Workspace 2023/WaveLayout/app/src/main/res/layout/searchpreference_preference.xml" value="0.20104166666666667" />
+        <entry key="..\:/backup software/Android/Workspace 2023/WaveLayout/app/src/main/res/layout/searchpreference_searchbar.xml" value="0.14010416666666667" />
+        <entry key="..\:/backup software/Android/Workspace 2023/WaveLayout/app/src/main/res/layout/treeview_item_dir.xml" value="0.67" />
+        <entry key="..\:/backup software/Android/Workspace 2023/WaveLayout/app/src/main/res/layout/treeview_item_file.xml" value="0.33" />
+        <entry key="..\:/backup software/Android/Workspace 2023/WaveLayout/app/src/main/res/layout/wavelayout.xml" value="0.20104166666666667" />
+        <entry key="..\:/backup software/Android/Workspace 2023/WaveLayout/app/src/main/res/layout/wavelayout_item_gridtype_2.xml" value="0.30117753623188404" />
+        <entry key="..\:/backup software/Android/Workspace 2023/WaveLayout/app/src/main/res/layout/wavelayout_item_listtype_1.xml" value="0.30117753623188404" />
+        <entry key="..\:/backup software/Android/Workspace 2023/WaveLayout/app/src/main/res/layout/wavelayout_item_listtype_2.xml" value="0.30117753623188404" />
+        <entry key="..\:/backup software/Android/Workspace 2023/WaveLayout/app/src/main/res/layout/wavelayout_item_listtype_3.xml" value="0.30117753623188404" />
         <entry key="..\:/backup software/Android/Workspace 2023/WaveLayout/app/src/main/res/layout/wavelayout_item_listtype_4.xml" value="0.5" />
+        <entry key="..\:/backup software/Android/Workspace 2023/WaveLayout/app/src/main/res/layout/wavelayout_item_listtype_nav.xml" value="0.30117753623188404" />
         <entry key="..\:/backup software/Android/Workspace 2023/WaveLayout/app/src/main/res/layout/wavelayout_navdrawer_recyclerview.xml" value="0.20104166666666667" />
+        <entry key="..\:/backup software/Android/Workspace 2023/WaveLayout/app/src/main/res/layout/wavelayout_preload_list.xml" value="0.30117753623188404" />
+        <entry key="..\:/backup software/Android/Workspace 2023/WaveLayout/app/src/main/res/xml/preferences2.xml" value="0.14010416666666667" />
         <entry key="app/src/main/res/drawable-v24/backgroundgradient.xml" value="0.1" />
         <entry key="app/src/main/res/drawable-v24/login_ic_forum_black_24dp.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/bg_card.xml" value="0.1" />

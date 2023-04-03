@@ -9,7 +9,7 @@ import android.widget.EditText;
 
 import androidx.preference.Preference;
 import androidx.preference.PreferenceViewHolder;
-
+import com.ag.bta.main.R;
 public class SearchPreference extends Preference implements View.OnClickListener {
     private SearchConfiguration searchConfiguration = new SearchConfiguration();
     private String hint = null;
@@ -17,36 +17,36 @@ public class SearchPreference extends Preference implements View.OnClickListener
     @SuppressWarnings("unused")
     public SearchPreference(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        setLayoutResource(com.bytehamster.lib.preferencesearch.R.layout.searchpreference_preference);
+        setLayoutResource(R.layout.searchpreference_preference);
         parseAttrs(attrs);
     }
 
     @SuppressWarnings("unused")
     public SearchPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
-        setLayoutResource(com.bytehamster.lib.preferencesearch.R.layout.searchpreference_preference);
+        setLayoutResource(R.layout.searchpreference_preference);
         parseAttrs(attrs);
     }
 
     @SuppressWarnings("unused")
     public SearchPreference(Context context) {
         super(context);
-        setLayoutResource(com.bytehamster.lib.preferencesearch.R.layout.searchpreference_preference);
+        setLayoutResource(R.layout.searchpreference_preference);
     }
 
     private void parseAttrs(AttributeSet attrs) {
-        TypedArray a = getContext().obtainStyledAttributes(attrs, new int[] {com.bytehamster.lib.preferencesearch.R.attr.textHint});
+        TypedArray a = getContext().obtainStyledAttributes(attrs, new int[] {R.attr.textHint});
         if (a.getText(0) != null) {
             hint = a.getText(0).toString();
             searchConfiguration.setTextHint(a.getText(0).toString());
         }
         a.recycle();
-        a = getContext().obtainStyledAttributes(attrs, new int[] {com.bytehamster.lib.preferencesearch.R.attr.textClearHistory});
+        a = getContext().obtainStyledAttributes(attrs, new int[] {R.attr.textClearHistory});
         if (a.getText(0) != null) {
             searchConfiguration.setTextClearHistory(a.getText(0).toString());
         }
         a.recycle();
-        a = getContext().obtainStyledAttributes(attrs, new int[] {com.bytehamster.lib.preferencesearch.R.attr.textNoResults});
+        a = getContext().obtainStyledAttributes(attrs, new int[] {R.attr.textNoResults});
         if (a.getText(0) != null) {
             searchConfiguration.setTextNoResults(a.getText(0).toString());
         }
@@ -55,7 +55,7 @@ public class SearchPreference extends Preference implements View.OnClickListener
 
     @Override
     public void onBindViewHolder(PreferenceViewHolder holder) {
-        EditText searchText = (EditText) holder.findViewById(com.bytehamster.lib.preferencesearch.R.id.search);
+        EditText searchText = (EditText) holder.findViewById(R.id.search);
         searchText.setFocusable(false);
         searchText.setInputType(InputType.TYPE_NULL);
         searchText.setOnClickListener(this);
@@ -64,7 +64,7 @@ public class SearchPreference extends Preference implements View.OnClickListener
             searchText.setHint(hint);
         }
 
-        holder.findViewById(com.bytehamster.lib.preferencesearch.R.id.search_card).setOnClickListener(this);
+        holder.findViewById(R.id.search_card).setOnClickListener(this);
         holder.itemView.setOnClickListener(this);
         holder.itemView.setBackgroundColor(0x0);
     }

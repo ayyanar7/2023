@@ -28,6 +28,10 @@
         <attr name="rv_reverse_animation" format="boolean|reference" />
     </declare-styleable>
     
-
-    
+<!--Saerch-->
+    <declare-styleable name="SearchPreference">
+        <attr name="textHint" format="string" />
+        <attr name="textNoResults" format="string" />
+        <attr name="textClearHistory" format="string" />
+    </declare-styleable>
 </resources>

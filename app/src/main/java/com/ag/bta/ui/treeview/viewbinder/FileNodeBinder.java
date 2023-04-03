@@ -1,6 +1,7 @@
 package com.ag.bta.ui.treeview.viewbinder;
 
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.ag.bta.main.R;
@@ -20,6 +21,7 @@ public class FileNodeBinder extends TreeViewBinder<FileNodeBinder.ViewHolder> {
     public void bindView(ViewHolder holder, int position, TreeNode node) {
         File fileNode = (File) node.getContent();
         holder.tvName.setText(fileNode.fileName);
+        holder.imgIcon.setImageResource(fileNode.iconRes);
     }
 
     @Override
@@ -29,10 +31,11 @@ public class FileNodeBinder extends TreeViewBinder<FileNodeBinder.ViewHolder> {
 
     public class ViewHolder extends TreeViewBinder.ViewHolder {
         public TextView tvName;
-
+        public ImageView imgIcon;
         public ViewHolder(View rootView) {
             super(rootView);
             this.tvName = (TextView) rootView.findViewById(R.id.tv_name);
+            this.imgIcon = (ImageView) rootView.findViewById(R.id.imageIcon);
         }
 
     }

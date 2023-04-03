@@ -12,8 +12,7 @@ import androidx.annotation.XmlRes;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
-
-import com.ag.bta.ui.searchrecycler.lib.RevealAnimationSetting;
+import com.ag.bta.ui.searchrecycler.lib.ui.RevealAnimationSetting;
 
 import java.util.ArrayList;
 import java.util.Arrays;

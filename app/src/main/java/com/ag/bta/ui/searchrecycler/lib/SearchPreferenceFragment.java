@@ -21,8 +21,9 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.ag.bta.ui.searchrecycler.lib.com.bytehamster.lib.preferencesearch.ui.AnimationUtils;
-import com.ag.bta.ui.searchrecycler.lib.com.bytehamster.lib.preferencesearch.ui.RevealAnimationSetting;
+import com.ag.bta.main.R;
+import com.ag.bta.ui.searchrecycler.lib.ui.AnimationUtils;
+import com.ag.bta.ui.searchrecycler.lib.ui.RevealAnimationSetting;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -60,7 +61,7 @@ public class SearchPreferenceFragment extends Fragment implements SearchPreferen
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(com.bytehamster.lib.preferencesearch.R.layout.searchpreference_fragment, container, false);
+        View rootView = inflater.inflate( R.layout.searchpreference_fragment, container, false);
         viewHolder = new SearchViewHolder(rootView);
 
         viewHolder.clearButton.setOnClickListener(view -> viewHolder.searchView.setText(""));
@@ -75,9 +76,9 @@ public class SearchPreferenceFragment extends Fragment implements SearchPreferen
         }
         viewHolder.moreButton.setOnClickListener(v -> {
             PopupMenu popup = new PopupMenu(getContext(), viewHolder.moreButton);
-            popup.getMenuInflater().inflate(com.bytehamster.lib.preferencesearch.R.menu.searchpreference_more, popup.getMenu());
+            popup.getMenuInflater().inflate( R.menu.searchpreference_more, popup.getMenu());
             popup.setOnMenuItemClickListener(item -> {
-                if (item.getItemId() == com.bytehamster.lib.preferencesearch.R.id.clear_history) {
+                if (item.getItemId() ==  R.id.clear_history) {
                     clearHistory();
                 }
                 return true;
@@ -273,12 +274,12 @@ public class SearchPreferenceFragment extends Fragment implements SearchPreferen
         private CardView cardView;
 
         SearchViewHolder(View root) {
-            searchView = root.findViewById(com.bytehamster.lib.preferencesearch.R.id.search);
-            clearButton = root.findViewById(com.bytehamster.lib.preferencesearch.R.id.clear);
-            recyclerView = root.findViewById(com.bytehamster.lib.preferencesearch.R.id.list);
-            moreButton = root.findViewById(com.bytehamster.lib.preferencesearch.R.id.more);
-            noResults = root.findViewById(com.bytehamster.lib.preferencesearch.R.id.no_results);
-            cardView = root.findViewById(com.bytehamster.lib.preferencesearch.R.id.search_card);
+            searchView = root.findViewById( R.id.search);
+            clearButton = root.findViewById( R.id.clear);
+            recyclerView = root.findViewById( R.id.list);
+            moreButton = root.findViewById( R.id.more);
+            noResults = root.findViewById( R.id.no_results);
+            cardView = root.findViewById( R.id.search_card);
         }
     }
 
