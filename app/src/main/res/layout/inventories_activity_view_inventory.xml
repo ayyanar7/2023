@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.ag.bta.ui.inventories.viewInventoryActivity"
+    tools:context=".fragments.navdrawer.products.viewInventoryActivity"
     android:orientation="vertical"
     >
     <LinearLayout

@@ -9,7 +9,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Toast;
 
 
-import com.ag.bta.constants.FragmentConstants;
+import com.ag.bta.utils.constant.FragmentConstants;
 import com.ag.bta.main.wavelayout.utils.BaseUtils;
 import com.ag.bta.main.wavelayout.utils.CardAdapter;
 import com.ag.bta.main.wavelayout.utils.ModelConfiguration;

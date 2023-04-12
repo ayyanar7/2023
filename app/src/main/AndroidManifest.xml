@@ -15,9 +15,16 @@
         android:theme="@style/MyMaterialTheme"
         tools:ignore="GoogleAppIndexingWarning"
         tools:targetApi="29" >
-
-
-<!--        <activity android:name="com.ag.bta.utils.excel.view.MainActivity"-->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.ag.bta.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths_public" />
+        </provider>
+        <activity android:name="com.ag.bta.utils.excel.view.MainActivity"/>
 <!--            android:screenOrientation="portrait">-->
 <!--            <intent-filter>-->
 <!--                <action android:name="android.intent.action.MAIN" />-->
@@ -26,32 +33,43 @@
 <!--            </intent-filter>-->
 <!--        </activity>-->
         <!--    <activity android:name="com.ag.bta.views.wavelayout.sample.MainActivity"-->
-            <activity android:name="com.ag.bta.main.activities.HomeActivity"
+        <activity
+            android:name="com.ag.bta.login.WelcomeActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:label="@string/app_name"
+            android:theme="@style/MyMaterialTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-        android:exported="true"
-        android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize"
-        tools:node="merge">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.ag.bta.main.activities.HomeActivity"/>
+<!--            <activity android:name="com.ag.bta.main.activities.HomeActivity"-->
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
-    </activity>
+<!--        android:exported="true"-->
+<!--        android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize"-->
+<!--        tools:node="merge">-->
+<!--        <intent-filter>-->
+<!--            <action android:name="android.intent.action.MAIN" />-->
+
+<!--            <category android:name="android.intent.category.LAUNCHER" />-->
+<!--        </intent-filter>-->
+<!--    </activity>-->
         <!--            android:name="com.ag.bta.login.SplashsActivity"-->
 
         <activity android:name="com.ag.bta.ui.searchrecycler.SimpleExample">
 
         </activity>
         <activity            android:name="com.ag.bta.ui.treeview.MainActivity"></activity>
-        <activity android:name="com.ag.bta.ui.custombottombar.bottomnavigationview.CenterFabActivity" />
 
 
         <activity android:name="com.ag.bta.main.activities.SearchActivity" />
-<!--        <activity android:name="com.ag.bta.main.activities.HomeActivity"/>-->
+        <activity android:name="com.ag.bta.main.activities.NavigationDrawerActivity"/>
 
         <!--        <activity android:name="com.ag.bta.ui.main.activities.MainActivity">-->
         <!--            <intent-filter>-->
-        <!--                <action android:name="android.intent.action.MAIN" />-->
+        <!--             `   <action android:name="android.intent.action.MAIN" />-->
         <!--                <category android:name="android.intent.category.LAUNCHER" />-->
         <!--            </intent-filter>-->
         <!--        </activity>-->
@@ -65,16 +83,17 @@
         <!--            </intent-filter>-->
         <!--        </activity>-->
 
-        <activity android:name="com.ag.bta.ui.inventories.ScanCodeActivitysearch"></activity>
-        <activity android:name="com.ag.bta.ui.inventories.ScanCodeActivity" />
-        <activity android:name="com.ag.bta.ui.inventories.ScanCodeActivitydel" />
-        <activity android:name="com.ag.bta.ui.inventories.viewInventoryActivity" />
-        <activity android:name="com.ag.bta.ui.inventories.scanItemsActivity" />
-        <activity android:name="com.ag.bta.ui.inventories.dashboardActivity" />
+        <activity android:name=".fragments.navdrawer.products.ScanCodeActivitysearch"></activity>
+        <activity android:name=".fragments.navdrawer.products.ScanCodeActivity" />
+        <activity android:name=".fragments.navdrawer.products.ScanCodeActivitydel" />
+        <activity android:name=".fragments.navdrawer.products.viewInventoryActivity" />
+        <activity android:name=".fragments.navdrawer.products.scanItemsActivity" />
+        <activity android:name=".fragments.navdrawer.products.dashboardActivity" />
         <activity android:name="com.ag.bta.login.RegisterActivity" />
         <activity android:name="com.ag.bta.login.LoginActivity" />
         <activity android:name="com.ag.bta.login.PreLoginActivity" />
-<!--        <activity android:name="com.ag.bta.main.fragments.AdminAboutFragment"-->
+        <activity  android:name="com.ag.bta.login.SplashsActivity" />
+<!--        <activity android:name="com.ag.bta.main.fragments.navdrawer.AdminAboutFragment"-->
 <!--            android:configChanges="keyboard|orientation|locale|fontScale|screenLayout|screenSize|uiMode|navigation|touchscreen|keyboardHidden|layoutDirection|smallestScreenSize"/>-->
 
         <activity
@@ -85,15 +104,14 @@
             android:name="com.lzy.imagepicker.ui.ImagePreviewDelActivity"
             android:theme="@style/ImagePickerThemeFullScreen"/>
 
-
-        <provider
-            android:name="androidx.core.content.FileProvider"
-            android:authorities="com.ag.bta.fileprovider"
-            android:exported="false"
-            android:grantUriPermissions="true">
-            <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_paths_public" />
-        </provider>
+<!--        <provider-->
+<!--            android:name="androidx.core.content.FileProvider"-->
+<!--            android:authorities="com.ag.bta.main.fileprovider"-->
+<!--            android:exported="false"-->
+<!--            android:grantUriPermissions="true">-->
+<!--            <meta-data-->
+<!--                android:name="android.support.FILE_PROVIDER_PATHS"-->
+<!--                android:resource="@xml/file_paths_public" />-->
+<!--        </provider>-->
     </application>
 </manifest>

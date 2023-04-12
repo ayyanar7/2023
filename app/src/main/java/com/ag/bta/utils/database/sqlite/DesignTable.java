@@ -4,9 +4,9 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 
-import com.ag.bta.constants.EncryptConstant;
-import com.ag.bta.constants.database.ColumnName;
-import com.ag.bta.constants.database.TableName;
+import com.ag.bta.utils.constant.EncryptConstant;
+import com.ag.bta.utils.constant.database.ColumnName;
+import com.ag.bta.utils.constant.database.TableName;
 import com.ag.bta.utils.DateUtils;
 
 public class DesignTable extends DatabaseBridge {
@@ -54,6 +54,9 @@ public boolean checkTable(){
 
     public int update(String ClmName, String clmValue, String whereClauseClmName, String whereClauseClmValue){
         return update(TableName.DESIGN, ClmName, clmValue,whereClauseClmName, whereClauseClmValue);
+    }
+    public void  delete(String tableName, String clmName, String clmValue ){
+        delete(  tableName,   clmName,   clmValue );
     }
 
 

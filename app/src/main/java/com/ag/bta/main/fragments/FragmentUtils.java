@@ -2,11 +2,12 @@ package com.ag.bta.main.fragments;
 
 import android.content.res.Resources;
 
-import com.ag.bta.constants.Global;
+
 import com.ag.bta.main.models.home.SubSubTab;
 import com.ag.bta.main.models.home.SubTab;
 import com.ag.bta.main.wavelayout.models.ItemCard;
 import com.ag.bta.utils.Log;
+import com.ag.bta.utils.constant.Global;
 
 import java.util.ArrayList;
 import java.util.List;

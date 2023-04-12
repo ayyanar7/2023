@@ -1,0 +1,66 @@
+{
+  "menu": [
+
+    {
+      "Title": "INVENTORIES",
+      "Child": [
+        {
+          "ChildTitle": "Available Stock",
+          "URL": ""
+        },
+        {
+          "ChildTitle": "Stock-in-Trade",
+          "URL": ""
+        },
+        {
+          "ChildTitle": "Reconcile",
+          "URL": ""
+        }
+      ]
+    },
+    {
+      "Title": "Purchases",
+      "Child": [
+        {
+          "ChildTitle": "Goods Purchased",
+          "URL": ""
+        },
+        {
+          "ChildTitle": "Purchase-Returns",
+          "URL": ""
+        },{
+          "ChildTitle": "Goods-in-Transit",
+          "URL": ""
+        },
+        {
+          "ChildTitle": "Statement",
+          "URL": ""
+        }
+      ]
+    },
+    {
+      "Title": "Sales",
+      "Child": [
+        {
+          "ChildTitle": "Sale",
+          "URL": ""
+        },
+        {
+          "ChildTitle": "Goods-sold",
+          "URL": ""
+        },{
+          "ChildTitle": "Sales-Returns",
+          "URL": ""
+        },{
+          "ChildTitle": "Goods-in-Transit",
+          "URL": ""
+        },
+        {
+          "ChildTitle": "Statement",
+          "URL": ""
+        }
+      ]
+    }
+
+  ]
+}

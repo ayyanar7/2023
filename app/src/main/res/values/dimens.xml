@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+        <dimen name="font_size_verysmall">8sp</dimen>
+        <dimen name="font_size_small">10sp</dimen>
+        <dimen name="font_size_medium">12sp</dimen>
+
 
         <dimen name="sp_16">16sp</dimen>
         <dimen name="dp_8">8dp</dimen>
@@ -22,7 +26,7 @@
 
         <dimen name="custom_tab_layout_height">45dp</dimen>
         <dimen name="custom_sub_tab_layout_height">43dp</dimen>
-        <dimen name="custom_sub_tab_layout_height2">35dp</dimen>
+        <dimen name="custom_sub_tab_layout_height2">31dp</dimen>
 
         <dimen name="nav_header_vertical_spacing">8dp</dimen>
         <dimen name="nav_layout_width">250dp</dimen>

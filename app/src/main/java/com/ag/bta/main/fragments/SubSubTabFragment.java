@@ -12,21 +12,18 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
-import com.ag.bta.constants.FragmentConstants;
-import com.ag.bta.constants.Global;
+import com.ag.bta.utils.constant.FragmentConstants;
+import com.ag.bta.utils.constant.Global;
 import com.ag.bta.main.R;
 import com.ag.bta.main.adapters.ViewPagerAdapter;
 import com.ag.bta.main.viewPager.CustomViewPager;
-import com.ag.bta.main.models.home.SectionBar;
 import com.ag.bta.main.models.home.SubSubTab;
 import com.ag.bta.main.models.home.SubTab;
 import com.ag.bta.main.models.home.Tab;
-import com.ag.bta.utils.GsonUtils;
 import com.ag.bta.utils.Log;
 import com.ag.bta.main.wavelayout.sample.WaveLayoutFragment;
 import com.ag.bta.utils.database.sqlite.DesignTable;
 import com.google.android.material.tabs.TabLayout;
-import com.google.gson.Gson;
 
 import java.util.ArrayList;
 
@@ -87,7 +84,7 @@ public class SubSubTabFragment extends Fragment {
 
         // String layoutName = Global.getInstance().getLayoutName(mainTabposition);
         View view = null;
-        int temp = subposition %2;
+
         switch(subposition){
             case 0:
                 view =  loadFragmentWithPager( inflater,  container);

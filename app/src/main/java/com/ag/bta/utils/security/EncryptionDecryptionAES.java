@@ -3,9 +3,8 @@ package com.ag.bta.utils.security;
 import android.util.Base64;
 
 
-import com.ag.bta.constants.EncryptConstant;
+import com.ag.bta.utils.constant.EncryptConstant;
 import com.ag.bta.utils.Log;
-import com.ag.bta.utils.database.sqlite.DatabaseHelper;
 
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;

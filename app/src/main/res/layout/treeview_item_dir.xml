@@ -4,12 +4,13 @@
     android:layout_width="match_parent"
     android:layout_height="45dp"
 
-    android:padding="5dp"
+    android:paddingTop="5dp"
     android:layout_marginRight="10dp"
     android:orientation="vertical">
 
 <RelativeLayout
     android:id="@+id/relLay"
+    android:clickable="true"
     android:layout_width="match_parent"
     android:layout_height="30dp"
     android:background="?android:attr/activatedBackgroundIndicator"
@@ -54,7 +55,7 @@
             android:layout_toRightOf="@id/imageIcon"
             android:paddingRight="10dp"
             android:text="Item Name"
-            android:textSize="12sp"
+            android:textSize="13sp"
             android:layout_gravity="center_vertical"
             android:textColor="@color/colorLightGrey"
             android:textAppearance="?android:attr/textAppearanceListItemSmall"
@@ -69,9 +70,9 @@
 android:layout_width="match_parent"
 android:layout_height="1dp"
 
-android:layout_marginBottom="2dp"
+android:layout_marginBottom="1dp"
     android:paddingTop="5dp"
 android:alpha="0.1"
-android:background="@android:color/primary_text_dark" />
+android:background="@color/colorBlack" />
 
     </LinearLayout>

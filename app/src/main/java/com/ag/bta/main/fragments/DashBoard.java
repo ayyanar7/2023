@@ -5,15 +5,14 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
-import com.ag.bta.constants.FragmentConstants;
-import com.ag.bta.constants.Global;
+import com.ag.bta.utils.constant.FragmentConstants;
+import com.ag.bta.utils.constant.Global;
 import com.ag.bta.main.R;
 import com.ag.bta.main.adapters.ViewPagerAdapter;
 import com.ag.bta.main.models.home.Tab;
@@ -51,7 +50,7 @@ private  CustomViewPager mViewPager = null;
         setupViewPager();
         TabLayout tabLayout = view.findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
-        tabLayout.setBackgroundColor(getResources().getColor(R.color.colorGray));
+        tabLayout.setBackgroundColor(getResources().getColor(R.color.colorGrey));
         mViewPager.addOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener(){
             @Override
             public void onPageSelected(int position) {

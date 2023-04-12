@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    <RelativeLayout  
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    
+    
+<!--     <include layout="@layout/header_sales" />
+ -->    
+
+
+    <LinearLayout android:orientation="vertical"
+          android:layout_width="match_parent"
+         android:layout_height="fill_parent"
+
+         android:background="@color/colorAccent" >
+
+        <ImageView
+            android:id="@+id/item_logo_img"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/logo" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+             android:layout_marginTop="50dp"
+            
+            android:orientation="vertical" >
+
+            <com.ag.bta.utils.customfonts.MyEditText
+                android:id="@+id/powerrating"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="22dp"
+                android:layout_marginRight="35dp"
+                android:background="#0000"
+                android:hint="Power Rating(VA)"
+                android:inputType="number"
+                android:padding="16dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:textSize="16dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:background="@color/black" />
+
+            <com.ag.bta.utils.customfonts.MyEditText
+                android:id="@+id/voltage_rating"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="22dp"
+                android:layout_marginRight="35dp"
+                android:background="#0000"
+                android:hint="Votage rating(V)"
+                android:inputType="number"
+                android:padding="16dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:textSize="16dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:background="@color/black" />
+
+            <com.ag.bta.utils.customfonts.MyEditText
+                android:id="@+id/currentrating"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="22dp"
+                android:layout_marginRight="35dp"
+                android:background="#0000"
+                android:hint="Current Rating(A)"
+                android:inputType="number"
+                android:maxLength="12"
+                android:padding="16dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:textSize="16dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:background="@color/black" />
+            
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>
+</FrameLayout>

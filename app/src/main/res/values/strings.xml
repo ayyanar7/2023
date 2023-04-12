@@ -1,18 +1,15 @@
 <resources>
-    <string name="app_name">WaveLayout</string>
+    <string name="app_name">Business Tax Agent</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Business Agent</string>
     <string name="nav_header_subtitle">ag.bta@ag.com</string>
     <string name="nav_header_desc">Navigation header</string>
-    <string name="show_installed_apps">Show installed apps</string>
+
     <string name="demo_size">46MB</string>
     <string name="msg_loading">Loading.Please wait!</string>
     <string name="action_settings">Settings</string>
 
-    <string name="top_categories">Top categories</string>
-    <string name="all_categories">All categories</string>
-    <string name="micsearch">MicSearch</string>
 
     <string name="grid_title">Grid Layout</string>
     <string name="list_title">List Layout</string>

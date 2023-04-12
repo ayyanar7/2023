@@ -1,6 +1,6 @@
 package com.ag.bta.utils;
 
-import com.ag.bta.constants.Constants;
+import com.ag.bta.utils.constant.Constants;
 
 public class Log {
     public static void d(final Object... contents){

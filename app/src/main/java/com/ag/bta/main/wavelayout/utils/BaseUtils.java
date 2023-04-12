@@ -11,7 +11,7 @@ package com.ag.bta.main.wavelayout.utils;
  import androidx.recyclerview.widget.LinearLayoutManager;
 
 
- import com.ag.bta.constants.FragmentConstants;
+ import com.ag.bta.utils.constant.FragmentConstants;
  import com.ag.bta.main.wavelayout.models.ItemCard;
 
 

@@ -1,20 +1,14 @@
 package com.ag.bta.test.jsongenerator;
 
-import com.ag.bta.constants.FragmentConstants;
-import com.ag.bta.main.fragments.FragmentUtils;
 import com.ag.bta.main.models.ApplicationModel;
 import com.ag.bta.main.models.home.BottomBar;
-import com.ag.bta.main.models.home.Container;
 import com.ag.bta.main.models.home.Home;
 import com.ag.bta.main.models.home.NavBar;
 import com.ag.bta.main.models.home.NavDrawerSection;
 import com.ag.bta.main.models.home.Option;
-import com.ag.bta.main.models.home.PagerContent;
-import com.ag.bta.main.models.home.SectionBar;
 import com.ag.bta.main.models.home.SubSubTab;
 import com.ag.bta.main.models.home.SubTab;
 import com.ag.bta.main.models.home.Tab;
-import com.ag.bta.main.wavelayout.models.ItemCard;
 import com.ag.bta.utils.Log;
 
 import java.util.ArrayList;

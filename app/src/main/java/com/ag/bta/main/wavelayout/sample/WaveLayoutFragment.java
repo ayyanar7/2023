@@ -1,7 +1,5 @@
 package com.ag.bta.main.wavelayout.sample;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,14 +10,10 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.ag.bta.constants.FragmentConstants;
+import com.ag.bta.utils.constant.FragmentConstants;
 import com.ag.bta.main.R;
-import com.ag.bta.main.fragments.FragmentUtils;
 import com.ag.bta.main.models.home.PagerContent;
 import com.ag.bta.main.models.home.SectionBar;
 import com.ag.bta.main.wavelayout.models.ItemCard;
@@ -29,10 +23,6 @@ import com.ag.bta.main.wavelayout.utils.BaseUtils;
 import com.ag.bta.main.wavelayout.utils.CardAdapter;
 import com.ag.bta.main.wavelayout.utils.ModelConfiguration;
 import com.ag.bta.main.wavelayout.view.WaveLayoutRecyclerView;
-import com.ag.bta.utils.lazyloading.FragmentFactory;
-import com.ag.bta.utils.lazyloading.LazyLoadFragment;
-import com.ag.bta.utils.lazyloading.LazyLoadViewModel;
-import com.ag.bta.utils.lazyloading.ReflectFragmentFactory;
 
 import java.util.ArrayList;
 

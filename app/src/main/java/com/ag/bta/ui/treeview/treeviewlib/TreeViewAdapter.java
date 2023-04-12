@@ -12,6 +12,8 @@ import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.ag.bta.utils.Log;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -49,17 +51,19 @@ public class TreeViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     public int getItemViewType(int position) {
         return displayNodes.get(position).getContent().getLayoutId();
     }
-
+//private TreeViewClickListener objonclick = new TreeViewClickListener();
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext())
                 .inflate(viewType, parent, false);
+
         if (viewBinders.size() == 1)
             return viewBinders.get(0).provideViewHolder(v);
         for (TreeViewBinder viewBinder : viewBinders) {
             if (viewBinder.getLayoutId() == viewType)
                 return viewBinder.provideViewHolder(v);
         }
+        //v.setOnClickListener(objonclick);
         return viewBinders.get(0).provideViewHolder(v);
     }
 
@@ -80,7 +84,7 @@ public class TreeViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     }
 
     @Override
-    public void onBindViewHolder(final RecyclerView.ViewHolder holder, int position) {
+    public void onBindViewHolder(final RecyclerView.ViewHolder holder,    int position) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
             holder.itemView.setPaddingRelative(displayNodes.get(position).getHeight() * padding, 3, 3, 3);
         }else {
@@ -91,6 +95,8 @@ public class TreeViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             public void onClick(View v) {
                 TreeNode selectedNode = displayNodes.get(holder.getLayoutPosition());
                 // Prevent multi-click during the short interval.
+                Log.d("Click pos: "+position);
+                Log.d("selectedNode: "+selectedNode);
                 try {
                     long lastClickTime = (long) holder.itemView.getTag();
                     if (System.currentTimeMillis() - lastClickTime < 500)
@@ -102,12 +108,17 @@ public class TreeViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
                 if (onTreeNodeListener != null && onTreeNodeListener.onClick(selectedNode, holder))
                     return;
+                Log.d("selectedNode: is leaf"+selectedNode.isLeaf());
+                Log.d("selectedNode: islocked"+selectedNode.isLocked());
+                Log.d("selectedNode: selectedNode.isExpand()"+selectedNode.isExpand());
                 if (selectedNode.isLeaf())
                     return;
                 // This TreeNode was locked to click.
                 if (selectedNode.isLocked()) return;
                 boolean isExpand = selectedNode.isExpand();
                 int positionStart = displayNodes.indexOf(selectedNode) + 1;
+                Log.d("positionStart:  "+positionStart);
+                Log.d("displayNodes.get(position):  "+displayNodes.get(position));
                 if (!isExpand) {
                     notifyItemRangeInserted(positionStart, addChildNodes(selectedNode, positionStart));
                 } else {

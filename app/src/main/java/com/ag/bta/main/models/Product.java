@@ -1,7 +1,7 @@
 package com.ag.bta.main.models;
 
 import com.ag.bta.utils.Log;
-import com.ag.bta.constants.Constants;
+import com.ag.bta.utils.constant.Constants;
 
 
 import java.text.DecimalFormat;
@@ -12,7 +12,7 @@ public class Product {
 	Object img = null;
 
 
-    private   int id = -1;
+    private   int id = 0;
 	
     protected String strManufacturerName= "";
     protected String strDealerName= "";
@@ -36,7 +36,7 @@ public class Product {
 	private String strNoOfUnits = "";
 	private String strDescription1= "";
 	private String strDescription2= "";
-
+private int type= 0;
  private static Product oitem = null;
      
 public Product() {
@@ -44,6 +44,12 @@ public Product() {
 	destroy();
 
 }
+	public int getType() {
+		return type;
+	}
+	public void setType(int typ) {
+		type = typ;
+	}
 public  int getId() {
 	return id;
 }
@@ -344,7 +350,7 @@ public void setStrNoOfUnits(String strNoOfUnits) {
 	this.strNoOfUnits = strNoOfUnits;
 }
 public String getStrDescription1() {
-	String strdesc = strPowerRating+"VA "+strManufacturerName+" "+Constants.sProductList[id];
+	String strdesc = strPowerRating+"VA "+strManufacturerName+" ";
 	return strdesc;
 }
 public void setStrDescription1(String strDescription) {

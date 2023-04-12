@@ -1,155 +1,345 @@
 package com.ag.bta.main.activities;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.Intent;
+import android.content.DialogInterface;
 import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.view.Menu;
+import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ExpandableListView;
-import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
-import androidx.annotation.DrawableRes;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.ag.bta.main.R;
-import com.ag.bta.main.fragments.AdminAboutFragment;
-import com.ag.bta.ui.inventories.AddItemFragment;
-import com.ag.bta.ui.inventories.DeleteItemsFragment;
-
-import com.ag.bta.ui.treeview.bean.Dir;
-import com.ag.bta.ui.treeview.bean.File;
-import com.ag.bta.ui.treeview.treeviewlib.TreeNode;
-import com.ag.bta.ui.treeview.treeviewlib.TreeViewAdapter;
-import com.ag.bta.ui.treeview.viewbinder.DirectoryNodeBinder;
-import com.ag.bta.ui.treeview.viewbinder.FileNodeBinder;
+import com.ag.bta.main.adapters.NavigationExpandListAdapter;
+import com.ag.bta.ui.custombottombar.library.custombottomnavview.BottomNavigationViewEx;
 import com.ag.bta.utils.Log;
 import com.bumptech.glide.Glide;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
-import com.google.android.material.snackbar.Snackbar;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 
-public class NavigationDrawerActivity extends SearchActivity
-        {
+import de.hdodenhof.circleimageview.CircleImageView;
 
+public class NavigationDrawerActivity extends SearchActivity implements NavigationView.OnNavigationItemSelectedListener {
+
+    ExpandableListView expListView;
+    int lastExpandedPosition = -1;
+
+    ArrayList<String> listDataHeader;
+    HashMap<String, List<String>> listDataChild;
+    HashMap<String, List<String>> listURLChild;
+    HashMap<String, String> childLessList;
     private DrawerLayout drawer;
 
     private Context context;
-    private RecyclerView rv;
-    private TreeViewAdapter adapter;
+
+    @SuppressLint("ResourceAsColor")
+    private static void centerToolbarTitle(@NonNull final Toolbar toolbar) {
+        final CharSequence title = toolbar.getTitle();
+        final ArrayList<View> outViews = new ArrayList<>(1);
+        toolbar.findViewsWithText(outViews, title, View.FIND_VIEWS_WITH_TEXT);
+        if (!outViews.isEmpty()) {
+            final TextView titleView = (TextView) outViews.get(0);
+            titleView.setGravity(Gravity.CENTER);
+            titleView.setTextColor(Color.parseColor("#ffffff"));
+            final Toolbar.LayoutParams layoutParams = (Toolbar.LayoutParams) titleView.getLayoutParams();
+            layoutParams.width = ViewGroup.LayoutParams.MATCH_PARENT;
+            toolbar.requestLayout();
+            //also you can use titleView for changing font: titleView.setTypeface(Typeface);
+        }
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+       // setContentView(R.layout.activity_main);
 
-       // Toolbar toolbar = findViewById(R.id.toolbar);
-       //setSupportActionBar(toolbar);
-
-        context = NavigationDrawerActivity.this;
-         drawer = findViewById(R.id.drawer_layout);
+       Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+       setSupportActionBar(toolbar);
+centerToolbarTitle(toolbar);
+context = NavigationDrawerActivity.this;
+        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer,
-                null,
+                toolbar,
                 R.string.navigation_drawer_open,
                 R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = findViewById(R.id.nav_view);
+
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
         navigationView.setItemIconTintList(null);
 
-        de.hdodenhof.circleimageview.CircleImageView profileImageView = navigationView.getHeaderView(0).findViewById(R.id.profile_image);
+        CircleImageView profileImageView = navigationView.getHeaderView(0).findViewById(R.id.profile_image);
         Glide.with(this)
                 .load(R.drawable.logo)
                 .into(profileImageView);
+        View hView = navigationView.getHeaderView(0);
+        TextView nav_user = hView.findViewById(R.id.nav_header_name);
+        nav_user.setText("Ayyanar V");
 
-        initView();
-        initData();
-        //listView.expandGroup(2);
+       // TextView userProfileName = (TextView) navigationView.getHeaderView(0).findViewById(R.id.userProfileName);
+        //TextView userAvatar = (TextView) navigationView.getHeaderView(0).findViewById(R.id.userAvatar);
 
-        mSearchView.attachNavigationDrawerToMenuButton(drawer);
+        //userProfileName.setText("Jay");
+        //userAvatar.setText(getUserAvatar("Jay"));
+
+        expListView = (ExpandableListView) findViewById(R.id.left_drawer);
+
+        enableExpandableList();
+       // setFragment(0, 0);
+
+   // mSearchView.attachNavigationDrawerToMenuButton(drawer);
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        return false;
     }
 
 
+    private void enableExpandableList() {
 
+        try {
+            prepareMenuList(getAssets().open("drawer.json"));
+        } catch (Exception e) {
+        }
 
-    private void initData() {
-        @DrawableRes
-        int dirIcon =   R.drawable.about_ads;
-        @DrawableRes
-        int fileIcon =   R.drawable.about_help;
-        List<TreeNode> nodes = new ArrayList<>();
+        NavigationExpandListAdapter listAdapter = new NavigationExpandListAdapter(this, listDataHeader, listDataChild);
+        // setting list adapter
+        expListView.setAdapter(listAdapter);
 
-        TreeNode<Dir> about = new TreeNode<>(new Dir("About", dirIcon, true)).lock();
-        nodes.add(about);
-        TreeNode<Dir> settings = new TreeNode<>(new Dir("Settings", dirIcon, false));
-        nodes.add(settings);
-        settings.addChild( new TreeNode<>(new File("General Settings", fileIcon)) );
-        settings.addChild( new TreeNode<>(new File("Application Settings", fileIcon)) );
+        expListView.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
 
-        TreeNode<Dir> configuration = new TreeNode<>(new Dir("Configuration", dirIcon, false));
-        nodes.add(configuration);
-        configuration.addChild(new TreeNode<>(new File("Add Product", fileIcon)))
-                .addChild(new TreeNode<>(new File("Delete Product", fileIcon)))
-                .addChild(new TreeNode<>(new File("View", fileIcon)));
-
-        TreeNode<Dir> pref = new TreeNode<>(new Dir("Prefrences", dirIcon, true)).lock();
-        nodes.add(pref);
-        TreeNode<Dir> export = new TreeNode<>(new Dir("Export Product details", dirIcon, true)).lock();
-        nodes.add(export);
-        TreeNode<Dir> imprt = new TreeNode<>(new Dir("Import Product details", dirIcon, true)).lock();
-        nodes.add(imprt);
-        TreeNode<Dir> orderDetails = new TreeNode<>(new Dir("Order details", dirIcon, true)).lock();
-        nodes.add(orderDetails);
-
-        rv.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new TreeViewAdapter(nodes, Arrays.asList(new FileNodeBinder(), new DirectoryNodeBinder()));
-        // whether collapse child nodes when their parent node was close.
-//        adapter.ifCollapseChildWhileCollapseParent(true);
-        adapter.setOnTreeNodeListener(new TreeViewAdapter.OnTreeNodeListener() {
             @Override
-            public boolean onClick(TreeNode node, RecyclerView.ViewHolder holder) {
-                Log.d(node.toString());
-                Log.d(holder.toString());
-                if (!node.isLeaf()) {
-                    //Update and toggle the node.
-                    onToggle(!node.isExpand(), holder);
-//                    if (!node.isExpand())
-//                        adapter.collapseBrotherNode(node);
+            public boolean onGroupClick(ExpandableListView parent, View v,
+                                        int groupPosition, long id) {
+                try {
+                    if (!checkIfChildExist(groupPosition))
+                        setFragment(groupPosition, -1);
+
+                } catch (Exception ex) {
+                    String s = ex.getMessage();
                 }
                 return false;
             }
+        });
+
+        expListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
+
 
             @Override
-            public void onToggle(boolean isExpand, RecyclerView.ViewHolder holder) {
-                DirectoryNodeBinder.ViewHolder dirViewHolder = (DirectoryNodeBinder.ViewHolder) holder;
-                final ImageView ivArrow = dirViewHolder.getIvArrow();
-                int rotateDegree = isExpand ? 90 : -90;
-                ivArrow.animate().rotationBy(rotateDegree)
-                        .start();
+            public void onGroupExpand(int groupPosition) {
+//                Toast.makeText(getApplicationContext(),
+//                        listDataHeader.get(groupPosition) + " Expanded",
+//                        Toast.LENGTH_SHORT).show();
+                Log.d(" view : groupPosition "+groupPosition );
+
+                if (lastExpandedPosition != -1
+                        && groupPosition != lastExpandedPosition) {
+                    expListView.collapseGroup(lastExpandedPosition);
+                }
+                lastExpandedPosition = groupPosition;
             }
         });
-        rv.setAdapter(adapter);
+
+        // Listview Group collapsed listener
+        expListView.setOnGroupCollapseListener(new ExpandableListView.OnGroupCollapseListener() {
+
+            @Override
+            public void onGroupCollapse(int groupPosition) {
+                Toast.makeText(getApplicationContext(),
+                        listDataHeader.get(groupPosition) + " Collapsed",
+                        Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+        // Listview child click listener
+        expListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
+
+            @Override
+            public boolean onChildClick(ExpandableListView parent, View v,
+                                        int groupPosition, int childPosition, long id) {
+                Log.d(" view : groupPosition "+groupPosition + " childPosition: "+childPosition+" id: "+id);
+                //Log.d(" view : childPosition "+groupPosition);
+//                if(groupPosition > 0) {
+//                    findViewById(R.id.homeframelayout).setVisibility(View.VISIBLE);
+//                    findViewById(R.id.mainViewPager).setVisibility(View.GONE);
+//                }else{
+//                    findViewById(R.id.mainViewPager).setVisibility(View.VISIBLE);
+//                    findViewById(R.id.homeframelayout).setVisibility(View.GONE);
+//                }
+                setFragment(groupPosition, childPosition);
+
+                return false;
+            }
+        });
     }
 
-    private void initView() {
-        rv = (RecyclerView) findViewById(R.id.rv);
+    public void prepareMenuList(InputStream inputStream) {
+        try {
+            listDataHeader = new ArrayList<String>();
+            listDataChild = new HashMap<String, List<String>>();
+            listURLChild = new HashMap<String, List<String>>();
+            childLessList = new HashMap<>();
+
+            JSONObject obj = new JSONObject(loadJSONFromAsset(inputStream));
+            JSONArray jsonArrayHeader = obj.getJSONArray("menu");
+
+            for (int headerIndex = 0; headerIndex < jsonArrayHeader.length(); headerIndex++) {
+
+                JSONObject jsonObject = jsonArrayHeader.getJSONObject(headerIndex);
+                List<String> childList = null;
+                List<String> childURL = null;
+                String title = jsonObject.getString("Title");
+                listDataHeader.add(title);
+                if (jsonObject.has("Child")) {
+                    childList = new ArrayList<String>();
+                    childURL = new ArrayList<String>();
+                    JSONArray jsonArrayChild = jsonObject.getJSONArray("Child");
+                    for (int childIndex = 0; childIndex < jsonArrayChild.length(); childIndex++) {
+                        childList.add(jsonArrayChild.getJSONObject(childIndex).getString("ChildTitle"));
+                        childURL.add(jsonArrayChild.getJSONObject(childIndex).getString("URL"));
+                    }
+                    //
+
+                } else
+                //we know there wasn't any child for sure
+                //meaning a childLess List in which case pass  parentHeaderName as a key to our childLess HashMap.
+                {
+                    childLessList.put(title, jsonObject.getString("URL"));
+                }
+                listDataChild.put(title, (childList != null) ? childList : new ArrayList<String>());
+                listURLChild.put(title, (childURL != null) ? childURL : new ArrayList<String>());
+            }
+        } catch (Exception e) {
+
+        }
     }
 
+    public String loadJSONFromAsset(InputStream inputStream) {
+        String json = null;
+        try {
+
+            int size = inputStream.available();
+            byte[] buffer = new byte[size];
+            inputStream.read(buffer);
+            inputStream.close();
+            json = new String(buffer, "UTF-8");
+        } catch (Exception ex) {
+
+            return null;
+        }
+        return json;
+    }
+
+
+    private void setFragment(int groupPosition, int childPosition) {
+        BottomNavigationViewEx bnve_bottom = findViewById(R.id.bnve_bottom);
+        bnve_bottom.setCurrentItem(-1);
+        Fragment fragment = null;
+        if (!checkIfChildExist(groupPosition))
+            fragment = getFragment(groupPosition, -1);
+        else
+            fragment = getFragment(groupPosition, childPosition);
+Log.d("Fragment: "+fragment);
+      FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+
+        if (fragment != null) {
+            //mainViewPager.setVisibility(View.GONE);
+            framelayout.setVisibility(View.VISIBLE);
+            transaction.replace(R.id.homeframelayout, fragment);
+            transaction.addToBackStack(null);
+            transaction.commit();
+        }
+
+        expListView.setItemChecked(childPosition, true);
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
+    }
+
+
+    public Fragment getFragment(int groupPosition, int childPosition) {
+        Fragment fragment = null;
+        String groupHeader = listDataHeader.get(groupPosition);
+        String fragmentName = null;
+        try {
+
+            if (childPosition == -1) {
+                fragmentName = childLessList.get(groupHeader);
+            } else {
+                fragmentName = listURLChild.get(groupHeader).get(childPosition);
+            }
+            if (!fragmentName.isEmpty())
+                fragment = (Fragment) Class.forName(fragmentName).newInstance();
+
+        } catch (Exception e) {
+            //java.lang.IndexOutOfBoundsException: Invalid index 0, size is 0
+            String s = e.getMessage();
+        }
+        return fragment;
+    }
+
+    /**
+     *
+     * @param groupPosition : header position
+     * @return true if child exist for group position else false
+     */
+    private boolean checkIfChildExist(int groupPosition) {
+        try {
+            String parentAsKey = listDataHeader.get(groupPosition);
+            List<String> childList = listURLChild.get(parentAsKey);
+            if (childList.size() == 0) {
+                return false;
+            }
+            return true;
+        } catch (Exception ex) {
+            return false;
+        }
+    }
+
+    public String getUserAvatar(String s) {
+        String temp = null;
+        if (s != null) {
+            String[] x = s.split(" ");
+            if (x.length == 1) {
+                temp = String.valueOf(x[0].charAt(0));
+            } else //greater than 1
+            {
+                temp = String.valueOf(x[0].charAt(0)) + String.valueOf(x[x.length - 1].charAt(0));
+            }
+        }
+        return temp != null ? temp.toUpperCase() : "";
+    }
+
+   /* @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        if (getTopFragment() == null)
+            exit();
+    }*/
 
     @Override
     public void onBackPressed() {
@@ -157,39 +347,64 @@ public class NavigationDrawerActivity extends SearchActivity
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
+
+            if (getSupportFragmentManager().getBackStackEntryCount() > 1) {
+                super.onBackPressed();
+            } else {
+                //let the last fragment remain & show exit alert...!
+                exit();
+            }
         }
+
+       /* List<Fragment> fragmentList = getSupportFragmentManager().getFragments();
+        if (fragmentList != null && fragmentList.size() > 0)
+        {
+            for (int i = 0; i < fragmentList.size(); i++) {
+                if (i == fragmentList.size() - 1) {
+                    //let the last fragment remain & show exit alert...!
+                    exit();
+
+                } else {
+                    super.onBackPressed();
+                }
+            }
+        }*/
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.navdrawer_main, menu);
+    public boolean exit() {
+        AlertDialog.Builder alertbox = new AlertDialog.Builder(this);
+
+        alertbox.setTitle("Do You Want To Exit ?");
+        alertbox.setMessage("Click yes to exit!")
+                .setCancelable(false)
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface arg0, int arg1) {
+                        //moveTaskToBack(true);
+                        finish();
+                    }
+                });
+
+        alertbox.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface arg0, int arg1) {
+                // Nothing will be happened when clicked on no button
+                // of Dialog
+            }
+        });
+
+        alertbox.show();
         return true;
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+    public Fragment getTopFragment() {
+        List<Fragment> fragentList = getSupportFragmentManager().getFragments();
+        Fragment top = null;
+        for (int i = fragentList.size() - 1; i >= 0; i--) {
+            top = fragentList.get(i);
+            if (top != null) {
+                return top;
+            }
         }
-
-        return super.onOptionsItemSelected(item);
+        return top;
     }
 
-    @SuppressWarnings("StatementWithEmptyBody")
-
-    private void loadFragment(Fragment fragment){
-        FragmentManager fm = getSupportFragmentManager();
-        FragmentTransaction fragTrans = fm.beginTransaction();
-        fragTrans.replace(R.id.homeframelayout, fragment);
-        fragTrans.commit();
-
-    }
 }

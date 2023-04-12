@@ -4,15 +4,13 @@
 <!--    <color name="colorWhite">#FFFFFFFF</color>-->
     //bottom bar
     <color name="colorGreen">#ff669900</color>
-    <color name="colorGray">#ccc</color>
 
 
-    //googleclone
     <color name="colorPrimary">#225b70</color>
     <color name="colorPrimaryDark">#0f4457</color>
     <color name="colorPrimaryLight">#117ba6</color>
     <color name="colorAccent">#ffffff</color>
-
+    <color name="colorTab"> #FAD23C</color>
     <color name="colorGrey">#616161</color>
     <color name="colorLightGrey">#757575</color>
     <color name="colorVeryLightGrey">#E0E0E0</color>

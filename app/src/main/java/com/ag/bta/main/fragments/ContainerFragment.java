@@ -12,11 +12,10 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.ag.bta.constants.FragmentConstants;
+import com.ag.bta.utils.constant.FragmentConstants;
 import com.ag.bta.main.R;
 import com.ag.bta.utils.Log;
 
-import java.util.ArrayList;
 import java.util.Objects;
 
 public class ContainerFragment extends Fragment {

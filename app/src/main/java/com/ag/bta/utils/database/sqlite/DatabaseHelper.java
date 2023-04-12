@@ -5,9 +5,9 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.ag.bta.constants.database.DBConstants;
-import com.ag.bta.constants.database.DBQuery;
-import com.ag.bta.constants.database.TableName;
+import com.ag.bta.utils.constant.database.DBConstants;
+import com.ag.bta.utils.constant.database.DBQuery;
+import com.ag.bta.utils.constant.database.TableName;
 
 /**
  * Created by shaloin on 1/6/17.
@@ -46,6 +46,8 @@ public  final class DatabaseHelper extends SQLiteOpenHelper {
 
         db.execSQL(DBQuery.CREATE_TABLE_ACCOUNT);
         db.execSQL(DBQuery.CREATE_TABLE_DESIGN);
+        db.execSQL(DBQuery.CREATE_TABLE_SALES);
+        db.execSQL(DBQuery.CREATE_TABLE_PURCHASE);
         //db.execSQL(CREATE_PHOTO_TABLE);
     }
 
@@ -53,6 +55,8 @@ public  final class DatabaseHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + TableName.ACCOUNT);
         db.execSQL("DROP TABLE IF EXISTS " + TableName.DESIGN);
+        db.execSQL("DROP TABLE IF EXISTS " + TableName.PURCHSE);
+        db.execSQL("DROP TABLE IF EXISTS " + TableName.SALES);
         onCreate(db);
 
 //        if (oldVersion < 2) {

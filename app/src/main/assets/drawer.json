@@ -1,0 +1,66 @@
+{
+  "menu": [
+    {
+      "Title": "Home",
+      "URL": "com.ag.bta.main.fragments.DashBoard"
+    },
+    {
+      "Title": "About",
+      "URL": "com.ag.bta.main.fragments.navdrawer.AdminAboutFragment"
+    },
+    {
+      "Title": "Profile",
+      "URL": "com.ag.bta.main.fragments.navdrawer.AdminAboutFragment"
+    },
+    {
+      "Title": "Product Configuration",
+      "Child": [
+        {
+          "ChildTitle": "Add Product",
+          "URL": "com.ag.bta.main.fragments.navdrawer.products.AddItemFragment"
+        },
+        {
+          "ChildTitle": "Remove Product",
+          "URL": "com.ag.bta.main.fragments.navdrawer.products.DeleteItemsFragment"
+        },
+        {
+          "ChildTitle": "Bulk Configuration",
+          "URL": "com.ag.bta.main.fragments.navdrawer.BulkConfiguration"
+        }
+      ]
+    },
+    {
+      "Title": "PDF",
+      "URL": "com.ag.bta.main.fragments.pdf.PDFFragment"
+    },
+    {
+      "Title": "Order Details",
+      "URL": "com.ag.bta.main.activities.other.CartFragment"
+    },
+    {
+      "Title": "Settings",
+      "Child": [
+        {
+          "ChildTitle": "App Settings",
+          "URL": " "
+        },
+        {
+          "ChildTitle": "Other Settings",
+          "URL": " "
+        }
+      ]
+    },
+    {
+      "Title": "Export Product Details",
+      "URL": "com.ag.bta.main.fragments.navdrawer.ExportProductDetails"
+    },
+    {
+      "Title": "Preferences",
+      "URL": " "
+    },
+    {
+      "Title": "Logout",
+      "URL": " "
+    }
+  ]
+}

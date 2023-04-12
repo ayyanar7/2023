@@ -6,6 +6,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -48,12 +49,21 @@ public class DirectoryNodeBinder extends TreeViewBinder<DirectoryNodeBinder.View
     public static class ViewHolder extends TreeViewBinder.ViewHolder {
         private ImageView ivArrow;
         private TextView tvName;
-        public ImageView imgIcon;
+        private ImageView imgIcon;
+        private RelativeLayout layout;
         public ViewHolder(View rootView) {
             super(rootView);
             this.ivArrow = (ImageView) rootView.findViewById(R.id.iv_arrow);
             this.tvName = (TextView) rootView.findViewById(R.id.tv_name);
             this.imgIcon = (ImageView) rootView.findViewById(R.id.imageIcon);
+            this.layout = (RelativeLayout) rootView.findViewById(R.id.relLay);
+            layout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    new TreeViewClickListener().dirItemClick(view);
+                }
+            });
+
         }
 
         public ImageView getIvArrow() {

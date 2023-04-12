@@ -1,6 +1,9 @@
 package com.ag.bta.main.activities;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.FrameLayout;
 
 import androidx.annotation.NonNull;
@@ -8,59 +11,116 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceFragmentCompat;
 
-import com.ag.bta.constants.Global;
-import com.ag.bta.constants.database.ColumnName;
-import com.ag.bta.constants.database.DBConstants;
+import com.ag.bta.utils.constant.Global;
+import com.ag.bta.utils.constant.database.ColumnName;
+import com.ag.bta.utils.constant.database.DBConstants;
 import com.ag.bta.main.R;
 import com.ag.bta.main.models.ApplicationModel;
 import com.ag.bta.main.models.Login;
 import com.ag.bta.main.models.home.Container;
 import com.ag.bta.main.models.home.PagerContent;
-import com.ag.bta.main.viewPager.CustomViewPager;
 import com.ag.bta.test.jsongenerator.ApplicationJsongenerator;
-import com.ag.bta.ui.searchrecycler.SimpleExample;
 import com.ag.bta.ui.searchrecycler.lib.SearchConfiguration;
 import com.ag.bta.ui.searchrecycler.lib.SearchPreference;
+import com.ag.bta.ui.searchrecycler.lib.SearchPreferenceActionView;
 import com.ag.bta.ui.searchrecycler.lib.SearchPreferenceResult;
 import com.ag.bta.ui.searchrecycler.lib.SearchPreferenceResultListener;
 import com.ag.bta.utils.GsonUtils;
 import com.ag.bta.utils.Log;
 import com.ag.bta.utils.database.sqlite.DesignTable;
-import com.arlib.floatingsearchview.FloatingSearchView;
 
 import java.util.HashMap;
 
-public class SearchActivity extends AppCompatActivity  implements SearchPreferenceResultListener {
-      protected FloatingSearchView mSearchView = null;
-    CustomViewPager mainViewPager  = null;
+public class SearchActivity extends AppCompatActivity  implements   SearchPreferenceResultListener {
+     // protected FloatingSearchView mSearchView = null;
+    //CustomViewPager mainViewPager  = null;
     FrameLayout framelayout = null;
-    private SimpleExample.PrefsFragment prefsFragment;
+    private static final String KEY_SEARCH_QUERY = "search_query";
+    private static final String KEY_SEARCH_ENABLED = "search_enabled";
+    private SearchPreferenceActionView searchPreferenceActionView;
+    private MenuItem searchPreferenceMenuItem;
+    private String savedInstanceSearchQuery;
+    private boolean savedInstanceSearchEnabled;
+   // private SearchViewExample.PrefsFragment prefsFragment;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_activity_main);
-        mSearchView = findViewById(R.id.search_view);
+       // mSearchView = findViewById(R.id.search_view);
         framelayout = findViewById(R.id.homeframelayout);
-        mainViewPager = (CustomViewPager) findViewById(R.id.mainViewPager);
+        //mainViewPager = (CustomViewPager) findViewById(R.id.mainViewPager);
 init();
-//unhide while implementing search
-        // temporarily hided for  purpose
-//        prefsFragment = new SimpleExample.PrefsFragment();
-//        getSupportFragmentManager().beginTransaction()
-//                .replace( R.id.homeframelayout, prefsFragment).commit();
-        mSearchView.setOnQueryChangeListener(new FloatingSearchView.OnQueryChangeListener() {
-            @Override
-            public void onSearchTextChanged(String oldQuery, final String newQuery) {
-
-            }
-        });
-
+        if (savedInstanceState != null) {
+            savedInstanceSearchQuery = savedInstanceState.getString(KEY_SEARCH_QUERY);
+            savedInstanceSearchEnabled = savedInstanceState.getBoolean(KEY_SEARCH_ENABLED);
+        }
 
     }
     @Override
-    public void onSearchResultClicked(@NonNull SearchPreferenceResult result) {
-        result.closeSearchPage(this);
-        result.highlight(prefsFragment);
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        searchPreferenceMenuItem = menu.findItem(R.id.search);
+        searchPreferenceActionView = (SearchPreferenceActionView) searchPreferenceMenuItem.getActionView();
+        SearchConfiguration searchConfiguration = searchPreferenceActionView.getSearchConfiguration();
+        searchConfiguration.index(R.xml.preferences);
+
+        searchConfiguration.useAnimation(
+                findViewById(android.R.id.content).getWidth() - getSupportActionBar().getHeight()/2,
+                -getSupportActionBar().getHeight()/2,
+                findViewById(android.R.id.content).getWidth(),
+                findViewById(android.R.id.content).getHeight(),
+                getResources().getColor(R.color.colorPrimary));
+
+        searchPreferenceActionView.setActivity(this);
+
+        final MenuItem searchPreferenceMenuItem = menu.findItem(R.id.search);
+        searchPreferenceMenuItem.setOnActionExpandListener(new MenuItem.OnActionExpandListener() {
+            @Override
+            public boolean onMenuItemActionCollapse(MenuItem item) {
+                searchPreferenceActionView.cancelSearch();
+                return true;
+            }
+
+            @Override
+            public boolean onMenuItemActionExpand(MenuItem item) {
+                return true;
+            }
+        });
+
+        if (savedInstanceSearchEnabled) {
+            new Handler().post(new Runnable() {
+                @Override
+                public void run() {
+                    // If we do not use a handler here, it will not be possible
+                    // to use the menuItem after dismissing the searchView
+                    searchPreferenceMenuItem.expandActionView();
+                    searchPreferenceActionView.setQuery(savedInstanceSearchQuery, false);
+                }
+            });
+        }
+        return true;
+    }
+
+    @Override
+    public void onSearchResultClicked(@NonNull final SearchPreferenceResult result) {
+        searchPreferenceActionView.cancelSearch();
+        searchPreferenceMenuItem.collapseActionView();
+       // result.highlight(prefsFragment);
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (!searchPreferenceActionView.cancelSearch()) {
+            super.onBackPressed();
+        }
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        outState.putString(KEY_SEARCH_QUERY, searchPreferenceActionView.getQuery().toString());
+        outState.putBoolean(KEY_SEARCH_ENABLED, !searchPreferenceActionView.isIconified());
+        searchPreferenceActionView.cancelSearch();
+        super.onSaveInstanceState(outState);
     }
 
     public static class PrefsFragment extends PreferenceFragmentCompat {
@@ -69,12 +129,9 @@ init();
             addPreferencesFromResource(R.xml.preferences);
 
             SearchPreference searchPreference = (SearchPreference) findPreference("searchPreference");
-            SearchConfiguration config = searchPreference.getSearchConfiguration();
-            config.setActivity((AppCompatActivity) getActivity());
-            config.index(R.xml.preferences);
+            searchPreference.setVisible(false);
         }
     }
-
     private void init(){
         Global.APPLICATION_PACKAGE =  getApplicationContext().getPackageName();
         Global.APPLICATION_CONTEXT = getApplicationContext();

@@ -45,7 +45,7 @@
         android:hint="Login"
         android:onClick="login"
         android:textColorHint="#ffff"
-        android:textSize="18dp" />
+        android:textSize="13sp" />
 
     <Button
         android:id="@+id/SignUpMain"
@@ -60,5 +60,5 @@
         android:hint="Register"
         android:onClick="register"
         android:textColorHint="#FFFF"
-        android:textSize="18dp" />
+        android:textSize="13sp" />
 </RelativeLayout>

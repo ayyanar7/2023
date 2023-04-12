@@ -9,8 +9,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Log;
 
-import com.ag.bta.constants.database.ColumnName;
-import com.ag.bta.constants.database.TableName;
+
 import com.ag.bta.main.models.Login;
 import com.ag.bta.utils.DateUtils;
 
@@ -18,7 +17,8 @@ import com.ag.bta.utils.DateUtils;
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 import java.util.List;
-
+import com.ag.bta.utils.constant.database.ColumnName;
+import com.ag.bta.utils.constant.database.TableName;
 public class DatabaseBridge   {
     String data1;
     String data2;

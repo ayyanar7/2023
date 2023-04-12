@@ -2,8 +2,8 @@ package com.ag.bta.ui.treeview.viewbinder;
 
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import com.ag.bta.main.R;
 import com.ag.bta.ui.treeview.bean.File;
 import com.ag.bta.ui.treeview.treeviewlib.TreeNode;
@@ -32,10 +32,18 @@ public class FileNodeBinder extends TreeViewBinder<FileNodeBinder.ViewHolder> {
     public class ViewHolder extends TreeViewBinder.ViewHolder {
         public TextView tvName;
         public ImageView imgIcon;
+        private LinearLayout llayout;
         public ViewHolder(View rootView) {
             super(rootView);
             this.tvName = (TextView) rootView.findViewById(R.id.tv_name);
             this.imgIcon = (ImageView) rootView.findViewById(R.id.imageIcon);
+            this.llayout = (LinearLayout) rootView.findViewById(R.id.fileLinearLayout);
+            llayout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    new TreeViewClickListener().fileItemClick(view);
+                }
+            });
         }
 
     }

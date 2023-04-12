@@ -20,7 +20,8 @@
         app:tabMode="scrollable"
         app:tabPaddingEnd="12dp"
         app:tabPaddingStart="12dp"
-        app:tabSelectedTextColor="@color/colorLightGrey"
+        app:tabTextColor="@color/colorTab"
+        app:tabSelectedTextColor="@color/colorAccent"
         app:tabTextAppearance="@style/TabLayoutStyle" />
 
 

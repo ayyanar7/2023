@@ -16,9 +16,7 @@ import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by shaloin on 1/6/17.
- */
+
 
 public final class  PasswordDatabase extends SQLiteOpenHelper {
 

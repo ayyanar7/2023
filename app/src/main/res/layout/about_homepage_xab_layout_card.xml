@@ -24,7 +24,7 @@
             android:id="@+id/cover"
             style="@style/Cover"
             android:layout_width="match_parent"
-            android:src="@drawable/about_profile_cover" />
+            android:src="@drawable/banner" />
 
 
         <LinearLayout
@@ -36,7 +36,7 @@
             android:paddingLeft="3dp"
             android:paddingRight="3dp">
 
-            <com.ag.bta.ui.about.views.CircleImageView
+            <com.ag.bta.main.fragments.navdrawer.about.views.CircleImageView
                 android:id="@+id/photo"
                 android:layout_width="@dimen/profile_picture_size"
                 android:layout_height="@dimen/profile_picture_size"
@@ -61,7 +61,7 @@
                 android:layout_margin="5dp"
                 android:text="This is as short message saying who you are and what you like to do." />
 
-            <com.ag.bta.ui.about.views.AutoFitGridLayout
+            <com.ag.bta.main.fragments.navdrawer.about.views.AutoFitGridLayout
                 android:id="@+id/links"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -72,7 +72,7 @@
                 android:paddingTop="@dimen/social_media_vertical_padding">
 
 
-            </com.ag.bta.ui.about.views.AutoFitGridLayout>
+            </com.ag.bta.main.fragments.navdrawer.about.views.AutoFitGridLayout>
 
 
             <LinearLayout
@@ -125,7 +125,7 @@
                     </LinearLayout>
                 </RelativeLayout>
 
-                <com.ag.bta.ui.about.views.AutoFitGridLayout
+                <com.ag.bta.main.fragments.navdrawer.about.views.AutoFitGridLayout
                     android:id="@+id/actions"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -133,7 +133,7 @@
                     android:gravity="center"
                     android:orientation="vertical">
 
-                </com.ag.bta.ui.about.views.AutoFitGridLayout>
+                </com.ag.bta.main.fragments.navdrawer.about.views.AutoFitGridLayout>
             </LinearLayout>
         </LinearLayout>
 

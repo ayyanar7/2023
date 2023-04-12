@@ -14,7 +14,7 @@ import androidx.fragment.app.FragmentActivity;
 import com.ag.bta.login.LoginActivity;
 import com.ag.bta.main.R;
 
-import com.ag.bta.ui.about.helper.AdminAboutHelper;
+import com.ag.bta.main.fragments.navdrawer.about.helper.AdminAboutHelper;
 
 public class AdminAboutActivity extends FragmentActivity {
 

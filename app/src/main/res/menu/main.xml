@@ -4,6 +4,6 @@
     <item
         android:id="@+id/itemMicSearch"
         android:icon="@drawable/ic_mic_black_24dp"
-        android:title="@string/micsearch"
+        android:title="@string/searchpreference_search"
         app:showAsAction="always" />
 </menu>

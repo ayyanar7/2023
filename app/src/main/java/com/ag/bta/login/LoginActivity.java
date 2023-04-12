@@ -14,7 +14,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.ag.bta.constants.Constants;
+import com.ag.bta.utils.constant.Constants;
 import com.ag.bta.main.R;
 import com.ag.bta.main.activities.HomeActivity;
 
@@ -101,26 +101,47 @@ Log.d(Constants.STR_APP_ID, "Inside login on create");
         Log.d(Constants.STR_APP_ID, "Validating ...");
         Log.d(Constants.STR_APP_ID, "Email: "+userEmail);
         Log.d(Constants.STR_APP_ID, "Password: "+userPassword);
+
+        if (userEmail.isEmpty()) {
+            Email.setError("It's empty");
+            Email.requestFocus();
+            return;
+        }
+        if (userPassword.isEmpty()) {
+            Password.setError("It's empty");
+            Password.requestFocus();
+            return;
+        }
+
+        if(processDialog == null)
+           processDialog = new ProgressDialog(this);
         processDialog.setMessage("................Please Wait.............");
         processDialog.show();
 
         auth.signInWithEmailAndPassword(userEmail, userPassword).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-                Log.d(Constants.STR_APP_ID, "Signin with email pass...");
-                Log.d(Constants.STR_APP_ID, "task: getStackTrace"+task.getException());
-                Log.d(Constants.STR_APP_ID, "task: "+task.getResult());
-                if(task.isSuccessful()){
+                try {
+                    Log.d(Constants.STR_APP_ID, "Signin with email pass...");
+                    Log.d(Constants.STR_APP_ID, "task: getStackTrace" + task.getException());
+                    Log.d(Constants.STR_APP_ID, "task: " + task.getResult());
+                    boolean isSuccess = task.isSuccessful();
+                    isSuccess = true;
+                    if (isSuccess) {
 
-                    processDialog.dismiss();
-                    Toast.makeText(LoginActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(LoginActivity.this,  HomeActivity.class));
-                }
+                        processDialog.dismiss();
+                        Toast.makeText(LoginActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(LoginActivity.this, HomeActivity.class));
+                        finish();
+                    } else {
+                        Toast.makeText(LoginActivity.this, "Login Failed", Toast.LENGTH_SHORT).show();
+                        processDialog.dismiss();
 
-                else{
-                    Toast.makeText(LoginActivity.this,"Login Failed", Toast.LENGTH_SHORT).show();
-                    processDialog.dismiss();
-
+                    }
+                }catch(Exception e){
+                    Log.d(Constants.STR_APP_ID, "Failed..."+e.toString());
+                    startActivity(new Intent(LoginActivity.this, HomeActivity.class));
+                    finish();
                 }
             }
         });

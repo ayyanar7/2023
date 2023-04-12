@@ -13,7 +13,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.ag.bta.constants.Constants;
+import com.ag.bta.utils.constant.Constants;
 import com.ag.bta.login.models.User;
 import com.ag.bta.main.R;
 import com.ag.bta.main.activities.HomeActivity;
@@ -185,6 +185,8 @@ public class RegisterActivity extends AppCompatActivity {
                                         startActivity(new Intent(RegisterActivity.this,  HomeActivity.class));
                                     } else {
                                         //display a failure message
+                                        Toast.makeText(RegisterActivity.this, "Registration Failed", Toast.LENGTH_LONG).show();
+
                                     }
                                 }
                             });
